@@ -1,0 +1,9 @@
+#book {
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.containner {
+  margin-top: 50px;
+}
