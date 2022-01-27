@@ -7,10 +7,9 @@ import { Recipe } from '../recipe.module';
   styleUrls: ['./recipe-list.component.css'],
 })
 export class RecipeListComponent {
-  name = 'Panqueca';
-  img =
-    'https://cozinhalegal.com.br/files/manager/1/819/Receita-Waffle-Americano-Fofinho.jpg';
-  desc = 'Mel e Panqueca';
+  name = 'a';
+  img = 'b';
+  desc = 'c';
 
   recipes: Recipe[] = [new Recipe(this.name, this.desc, this.img)];
 

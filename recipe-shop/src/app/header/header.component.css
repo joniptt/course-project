@@ -1,3 +1,6 @@
+#navbarNavDropdown {
+  display: flex;
+}
 #drop {
-  margin-left: 83%;
+  margin-left: auto;
 }

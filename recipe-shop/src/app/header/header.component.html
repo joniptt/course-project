@@ -1,16 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Recipe Book</a>
+  <a class="navbar-brand" href="#">Navbar</a>
   <button
     class="navbar-toggler"
     type="button"
     data-toggle="collapse"
-    data-target="#navbarNav"
-    aria-controls="navbarNav"
+    data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown"
     aria-expanded="false"
     aria-label="Toggle navigation"
-  ></button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul id="list" class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="#">Recipes</a>
       </li>
@@ -18,21 +20,27 @@
         <a class="nav-link" href="#">Shopping List</a>
       </li>
     </ul>
-    <ul id="drop" class="nav navbar-nav">
-      <li class="dropdown">
+    <ul id="drop" class="navbar-nav">
+      <li ngbDropdown class="nav-item dropdown">
         <a
           class="nav-link dropdown-toggle"
-          role="button"
+          href="#"
+          ngbDropdownToggle
+          id="navbarDropdownMenuLink"
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
-          href="#"
-          >Manager</a
         >
-        <ul class="dropdown-menu">
-          <li class="dropdown-item"><a href="">Save Data</a></li>
-          <li class="dropdown-item"><a href="">Fetch Data</a></li>
-        </ul>
+          Dropdown link
+        </a>
+        <div
+          ngbDropdownMenu
+          class="dropdown-menu"
+          aria-labelledby="navbarDropdownMenuLink"
+        >
+          <a class="dropdown-item" href="#">Start </a>
+          <a class="dropdown-item" href="#">Another action</a>
+        </div>
       </li>
     </ul>
   </div>
