@@ -7,11 +7,20 @@ import { Recipe } from '../recipe.module';
   styleUrls: ['./recipe-list.component.css'],
 })
 export class RecipeListComponent {
-  name = 'a';
-  img = 'b';
-  desc = 'c';
+  name = 'Receita';
+  img = 'https://live.staticflickr.com/4076/4756486114_0bc21e6fa3_c.jpg';
+  desc = 'Essa é uma receita de bolo';
 
-  recipes: Recipe[] = [new Recipe(this.name, this.desc, this.img)];
+  deleteRecipe(i: number) {
+    this.recipes.splice(i, 1);
+    console.log(this.recipes);
+  }
+
+  recipes: Recipe[] = [
+    new Recipe('bolo', this.desc, this.img),
+    new Recipe('batata', this.desc, this.img),
+    new Recipe(this.name, this.desc, this.img),
+  ];
 
   constructor() {}
 }

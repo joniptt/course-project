@@ -7,3 +7,12 @@
 .containner {
   margin-top: 50px;
 }
+.close {
+  margin-top: 20px;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+}

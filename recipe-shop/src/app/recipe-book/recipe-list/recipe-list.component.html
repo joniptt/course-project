@@ -1,12 +1,9 @@
 <div class="containner">
-  <input type="text" />
-  <input type="text" />
-  <input type="file" [value]="" />
-  <hr />
   <button class="btn btn-success">New Recipe</button>
+  <hr />
   <a
     id="book"
-    *ngFor="let recipe of recipes"
+    *ngFor="let recipe of recipes; let i = index"
     class="list-group-item list-group-item-action"
   >
     <div>
@@ -19,6 +16,8 @@
       class="img"
       style="max-height: 70px"
     />
+    <button class="close" (click)="deleteRecipe(i)">x</button>
   </a>
   <app-recipe-item></app-recipe-item>
 </div>
+<div></div>
