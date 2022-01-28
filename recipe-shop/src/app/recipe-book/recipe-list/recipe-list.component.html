@@ -1,5 +1,5 @@
 <div class="containner">
-  <button class="btn btn-success">New Recipe</button>
+  <app-recipe-item (recipeProps)="addRecipe($event)"></app-recipe-item>
   <hr />
   <a
     id="book"
@@ -18,6 +18,5 @@
     />
     <button class="close" (click)="deleteRecipe(i)">x</button>
   </a>
-  <app-recipe-item></app-recipe-item>
 </div>
 <div></div>
