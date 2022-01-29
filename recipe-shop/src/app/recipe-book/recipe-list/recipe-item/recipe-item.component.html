@@ -3,6 +3,7 @@
   <input id="name" type="text" class="form-control" [(ngModel)]="recipeName" />
   <label for="desc">Description</label>
   <input id="desc" class="form-control" type="text" [(ngModel)]="recipeDesc" />
-  <input class="forms-item" type="file" name="Dowload Img" id="" />
+  <label for="img">Insira o link da imagem abaixo</label>
+  <input id="img" class="form-control" type="text" [(ngModel)]="recipeImg" />
 </div>
 <button (click)="addRecipe()" class="btn btn-success">New Recipe</button>

@@ -16,7 +16,7 @@ export class RecipeListComponent {
   }
   addRecipe(recipeProp: any) {
     this.recipes.push(
-      new Recipe(recipeProp.name, recipeProp.desc, recipeProp.img)
+      new Recipe(recipeProp.recName, recipeProp.recDesc, recipeProp.recImg)
     );
     console.log(this.recipes);
   }

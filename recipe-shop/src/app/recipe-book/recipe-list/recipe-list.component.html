@@ -1,6 +1,5 @@
 <div class="containner">
-  <app-recipe-item (recipeProps)="addRecipe($event)"></app-recipe-item>
-  <hr />
+  <app-recipe-item (recItens)="addRecipe($event)"></app-recipe-item>
   <a
     id="book"
     *ngFor="let recipe of recipes; let i = index"
@@ -19,4 +18,3 @@
     <button class="close" (click)="deleteRecipe(i)">x</button>
   </a>
 </div>
-<div></div>

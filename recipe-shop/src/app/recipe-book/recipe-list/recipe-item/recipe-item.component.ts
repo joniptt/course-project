@@ -11,19 +11,16 @@ export class RecipeItemComponent implements OnInit {
   recipeName = '';
   recipeDesc = '';
   recipeImg = '';
-  @Output() recipeProps = new EventEmitter<{
-    recName: string;
-    recDesc: string;
-    recImg: string;
-  }>();
+  @Output('recItens') recipeProps = new EventEmitter<any>();
 
   addRecipe() {
-    if (this.recipeName && this.recipeDesc != '') {
+    if (this.recipeName && this.recipeDesc && this.recipeImg != '') {
       this.recipeProps.emit({
         recName: this.recipeName,
         recDesc: this.recipeDesc,
         recImg: this.recipeImg,
       });
+      console.log(this.recipeDesc);
     }
   }
 }
