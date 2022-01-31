@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'recipe-shop';
+  showRecipe = false;
+  showShoppingList = false;
+  changePage(pageStatus: { recipe: boolean; shop: boolean }) {
+    this.showRecipe = pageStatus.recipe;
+    this.showShoppingList = pageStatus.shop;
+    console.log(this.showRecipe);
+  }
 }
