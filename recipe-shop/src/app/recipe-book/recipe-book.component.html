@@ -3,8 +3,7 @@
     <app-recipe-list (emitDetails)="selectedRecipe = $event"></app-recipe-list>
   </div>
   <div>
-    <app-recipe-detail
-      [recipeSelectedDetail]="selectedRecipe"
-    ></app-recipe-detail>
+    <app-recipe-detail *ngIf="showDetail; else warning"></app-recipe-detail>
+    <ng-template #warning>Não</ng-template>
   </div>
 </div>

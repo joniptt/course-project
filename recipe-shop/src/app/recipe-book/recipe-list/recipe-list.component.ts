@@ -24,7 +24,7 @@ export class RecipeListComponent {
   recName = '';
   recDesc = '';
   recImg = '';
-  onSelectedRecipe(recipe: Recipe) {
+  onRecipeSelected(recipe: Recipe) {
     this.emitDetails.emit(recipe);
   }
   addNewRecipe() {

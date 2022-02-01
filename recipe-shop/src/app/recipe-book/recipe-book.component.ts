@@ -8,8 +8,12 @@ import { Recipe } from '../models/recipe-model';
 })
 export class RecipeBookComponent {
   selectedRecipe: Recipe;
+  showDetail = false;
+  warning = 'Nada para mostrar!';
   constructor() {}
-  appendDetails(recipe: Recipe) {
+  recipeDetail(recipe: Recipe) {
     this.selectedRecipe = recipe;
+    this.showDetail = true;
+    console.log(this.selectedRecipe);
   }
 }

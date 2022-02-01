@@ -25,3 +25,6 @@ img {
 #book img {
   padding-right: 10px;
 }
+a {
+  cursor: pointer;
+}
