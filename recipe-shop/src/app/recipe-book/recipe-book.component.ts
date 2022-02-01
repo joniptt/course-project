@@ -9,7 +9,4 @@ import { Recipe } from '../models/recipe-model';
 export class RecipeBookComponent {
   selectedRecipe: Recipe;
   constructor() {}
-  appendDetails(recipe: Recipe) {
-    this.selectedRecipe = recipe;
-  }
 }
