@@ -4,3 +4,6 @@
 #drop {
   margin-left: auto;
 }
+a {
+  cursor: pointer;
+}

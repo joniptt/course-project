@@ -1,8 +1,12 @@
 <div class="containner">
   <div>
-    <app-recipe-list></app-recipe-list>
+    <app-recipe-list
+      (onSelectedRecipe)="appendDetails($event)"
+    ></app-recipe-list>
   </div>
   <div>
-    <app-recipe-detail></app-recipe-detail>
+    <app-recipe-detail
+      [recipeSelectedDetail]="selectedRecipe"
+    ></app-recipe-detail>
   </div>
 </div>

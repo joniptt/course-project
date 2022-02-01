@@ -1,9 +1,13 @@
-<div class="forms-group">
-  <label for="name ">Name</label>
-  <input id="name" type="text" class="form-control" [(ngModel)]="recipeName" />
-  <label for="desc">Description</label>
-  <input id="desc" class="form-control" type="text" [(ngModel)]="recipeDesc" />
-  <label for="img">Insira o link da imagem abaixo</label>
-  <input id="img" class="form-control" type="text" [(ngModel)]="recipeImg" />
-</div>
-<button (click)="addRecipe()" class="btn btn-success">New Recipe</button>
+<a (click)="selectedData()" id="book" class="list-group-item-action">
+  <div id="itens" class="list-group-item-action">
+    <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+    <p class="list-group-item-text">{{ recipe.description }}</p>
+  </div>
+  <img
+    class="list-group-item"
+    [src]="recipe.imagePath"
+    alt="{{ recipe.name }}"
+    class="img"
+  />
+  <!-- <button class="close">x</button> -->
+</a>
