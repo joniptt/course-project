@@ -8,6 +8,7 @@ import { RecipeBookComponent } from './recipe-book/recipe-book.component';
 import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
 import { RecipeItemComponent } from './recipe-book/recipe-list/recipe-item/recipe-item.component';
 import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.component';
+import { recipeData } from './recipe-book/recipe.service';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
@@ -23,7 +24,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
     RecipeDetailComponent,
   ],
   imports: [BrowserModule, NgbModule, FormsModule],
-  providers: [],
+  providers: [recipeData],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
