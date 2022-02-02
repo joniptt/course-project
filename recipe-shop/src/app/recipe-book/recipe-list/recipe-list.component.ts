@@ -11,16 +11,17 @@ export class RecipeListComponent {
   constructor(private addRecipe: recipeService) {}
   @Output('sendDetails') emitDetails = new EventEmitter<Recipe>();
   recipes: Recipe[] = this.addRecipe.recipes;
-
+  ingrs: [] = [];
   recName = '';
   recDesc = '';
   recImg = '';
   onRecipeSelected(recipe: Recipe) {
     this.emitDetails.emit(recipe);
   }
-  addNewRecipe() {
-    if (this.recName && this.recDesc && this.recImg != '') {
-      this.addRecipe.newRecipe(this.recName, this.recDesc, this.recImg);
-    }
-  }
+  // addNewRecipe() {
+  //   this.ingrs.push();
+  //   if (this.recName && this.recDesc && this.recImg != '') {
+  //     this.addRecipe.newRecipe(this.recName, this.recDesc, this.recImg);
+  //   }
+  // }
 }

@@ -27,8 +27,8 @@ const routes: Routes = [
     ShoppingEditComponent,
     RecipeBookComponent,
     RecipeListComponent,
-    RecipeDetailComponent,
     RecipeItemComponent,
+    RecipeDetailComponent,
   ],
   imports: [
     BrowserModule,
