@@ -16,12 +16,11 @@ img {
   text-decoration: none;
   color: black;
   align-items: center;
-  border: rgb(202, 194, 194) solid 0.4px;
+  border: rgb(160, 154, 154) solid 0.4px;
   border-radius: 5px;
-}
-#book #itens {
   padding-left: 10px;
 }
+
 #book img {
   padding-right: 10px;
 }

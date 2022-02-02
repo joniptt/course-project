@@ -2,3 +2,6 @@ div {
   display: flex;
   flex-direction: column;
 }
+a {
+  cursor: pointer;
+}

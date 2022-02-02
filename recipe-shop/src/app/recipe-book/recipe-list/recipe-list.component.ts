@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Recipe } from 'src/app/models/recipe-model';
+import { recipeService } from 'src/app/services/recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -7,20 +8,10 @@ import { Recipe } from 'src/app/models/recipe-model';
   styleUrls: ['./recipe-list.component.css'],
 })
 export class RecipeListComponent {
-  constructor() {}
+  constructor(private addRecipe: recipeService) {}
   @Output('sendDetails') emitDetails = new EventEmitter<Recipe>();
-  recipes: Recipe[] = [
-    new Recipe(
-      'Bolo',
-      'Bolo de morango',
-      'https://img.elo7.com.br/product/original/30B68A0/bolo-de-morango-bolo-suspiro-de-morango.jpg'
-    ),
-    new Recipe(
-      'Panqueca',
-      'Panqueca de carne moída',
-      'https://img.cybercook.com.br/imagens/receitas/810/panqueca-de-carne-moida-1.jpg'
-    ),
-  ];
+  recipes: Recipe[] = this.addRecipe.recipes;
+
   recName = '';
   recDesc = '';
   recImg = '';
@@ -29,11 +20,7 @@ export class RecipeListComponent {
   }
   addNewRecipe() {
     if (this.recName && this.recDesc && this.recImg != '') {
-      this.recipes.push(new Recipe(this.recName, this.recDesc, this.recImg));
+      this.addRecipe.newRecipe(this.recName, this.recDesc, this.recImg);
     }
   }
-  // deleteRecipe(i: number) {
-  //   this.recipes.splice(i, 1);
-  //   console.log(this.recipes);
-  // }
 }

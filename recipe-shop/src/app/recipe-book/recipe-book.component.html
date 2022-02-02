@@ -1,9 +1,8 @@
 <div class="containner">
   <div>
-    <app-recipe-list (emitDetails)="selectedRecipe = $event"></app-recipe-list>
+    <app-recipe-list></app-recipe-list>
   </div>
   <div>
-    <app-recipe-detail *ngIf="showDetail; else warning"></app-recipe-detail>
-    <ng-template #warning>Não</ng-template>
+    <app-recipe-detail></app-recipe-detail>
   </div>
 </div>

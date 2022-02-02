@@ -1,12 +1,19 @@
 <div class="containner">
-  <div>
+  <div class="recImg">
+    <img [src]="recipeSelectedDetail.imagePath" alt="" />
+  </div>
+  <div class="title">
     <h1>{{ recipeSelectedDetail.name }}</h1>
   </div>
-  <img [src]="" alt="" style="width: 50px" />
+  <div class="desc">
+    <p>{{ recipeSelectedDetail.description }}</p>
+  </div>
 
-  <div ngbDropdown>
-    <button class="btn btn-primary" ngbDropdownToggle>Manage Recipe</button>
-    <div ngbDropdownMenu>
+  <div ngbDropdown class="d-inline-block" id="dropButton">
+    <button class="btn btn-outline-primary" ngbDropdownToggle>
+      Manage Recipe
+    </button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
       <button ngbDropdownItem>Add Ingridients Recipe to Shopping List</button>
       <button ngbDropdownItem>Edit Recipe</button>
       <button ngbDropdownItem>Delete Recipe</button>
