@@ -6,8 +6,13 @@ export class shoppingService {
     new Ingredients('Tomatoes', 10),
   ];
 
-  addIngredients(ingredient: string, amount: number) {
-    this.ingredients.push(new Ingredients(ingredient, amount));
+  addIngredients(ingName: string, ingAmount: number) {
+    this.ingredients.push(new Ingredients(ingName, ingAmount));
+  }
+  addRecipeIngrList(ingredient: Ingredients[]) {
+    for (let ing of ingredient) {
+      this.ingredients.push(new Ingredients(ing.name, ing.amount));
+    }
   }
   removeIngredients() {}
   clearIngredients() {}

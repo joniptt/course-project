@@ -8,9 +8,13 @@ import { recipeService } from 'src/app/services/recipe.service';
 })
 export class RecipeDetailComponent {
   recipeSelectedDetail: Recipe;
+
   constructor(private viewRecipe: recipeService) {
     this.viewRecipe.viewRecipeDetails.subscribe(
       (recipe: Recipe) => (this.recipeSelectedDetail = recipe)
     );
+  }
+  addIngr() {
+    this.viewRecipe.addRecipeIngr(this.recipeSelectedDetail.ingredients);
   }
 }

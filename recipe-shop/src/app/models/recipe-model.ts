@@ -1,19 +1,21 @@
+import { Ingredients } from '../shared/ingredients.module';
+
 export class Recipe {
   public name: string;
   public description: string;
   public imagePath: string;
-  public ingredients: [];
+  public ingredients: Ingredients[];
 
   constructor(
     name: string,
     description: string,
     imagePath: string,
-    ingredients: []
+    ingredient: Ingredients[]
   ) {
     this.name = name;
     this.description = description;
     this.imagePath = imagePath;
-    this.ingredients = ingredients;
+    this.ingredients = ingredient;
   }
   deserialize(input: any): this {
     Object.assign(this, input);

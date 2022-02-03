@@ -16,6 +16,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 const routes: Routes = [
   { path: 'recipes', component: RecipeBookComponent },
+  { path: 'recipes/detail', component: RecipeDetailComponent },
   { path: 'shoppinglist', component: ShoppingListComponent },
 ];
 
