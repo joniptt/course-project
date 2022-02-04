@@ -1,6 +1,6 @@
 <a
-  routerLink="/detail"
   (click)="selectedData()"
+  [routerLink]="['detail', recipe.name]"
   id="book"
   class="list-group-item-action"
 >

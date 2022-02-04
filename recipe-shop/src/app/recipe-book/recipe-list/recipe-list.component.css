@@ -25,3 +25,6 @@ img {
   border: rgb(184, 170, 170) solid 1px;
   border-radius: 5px;
 }
+.pag {
+  display: flex;
+}
