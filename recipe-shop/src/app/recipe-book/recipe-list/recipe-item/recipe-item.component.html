@@ -1,13 +1,13 @@
-<a (click)="selectedData()" id="book" class="list-group-item-action">
+<a
+  routerLink="/detail"
+  (click)="selectedData()"
+  id="book"
+  class="list-group-item-action"
+>
   <div id="itens" class="list-group-item-action">
     <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
     <p class="list-group-item-text">{{ recipe.description }}</p>
   </div>
-  <img
-    class="list-group-item"
-    [src]="recipe.imagePath"
-    alt="{{ recipe.name }}"
-    class="img"
-  />
+  <img class="list-group-item" [src]="recipe.imagePath" class="img" />
   <!-- <button class="close">x</button> -->
 </a>

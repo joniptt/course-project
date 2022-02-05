@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Recipe } from 'src/app/models/recipe-model';
 import { recipeService } from 'src/app/services/recipe.service';
 
@@ -8,16 +8,12 @@ import { recipeService } from 'src/app/services/recipe.service';
   styleUrls: ['./recipe-list.component.css'],
 })
 export class RecipeListComponent {
-  constructor(private addRecipe: recipeService) {}
-  @Output('sendDetails') emitDetails = new EventEmitter<Recipe>();
   recipes: Recipe[] = this.addRecipe.recipes;
-  ingrs: [] = [];
+  constructor(private addRecipe: recipeService) {}
   recName = '';
   recDesc = '';
   recImg = '';
-  onRecipeSelected(recipe: Recipe) {
-    this.emitDetails.emit(recipe);
-  }
+
   // addNewRecipe() {
   //   this.ingrs.push();
   //   if (this.recName && this.recDesc && this.recImg != '') {
