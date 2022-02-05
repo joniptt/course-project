@@ -9,14 +9,13 @@ import { RecipeBookComponent } from './recipe-book/recipe-book.component';
 import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
 import { RecipeItemComponent } from './recipe-book/recipe-list/recipe-item/recipe-item.component';
 import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.component';
+import { RecipeRoutingModule } from './recipe-book/recipe.module';
 import { recipeService } from './services/recipe.service';
 import { shoppingService } from './services/shopping.service';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 const routes: Routes = [
-  { path: 'recipes', component: RecipeBookComponent },
-  { path: 'recipes/detail', component: RecipeDetailComponent },
   { path: 'shoppinglist', component: ShoppingListComponent },
 ];
 
@@ -36,6 +35,7 @@ const routes: Routes = [
     NgbModule,
     FormsModule,
     RouterModule.forRoot(routes),
+    RecipeRoutingModule,
   ],
   providers: [recipeService, shoppingService],
   bootstrap: [AppComponent],
