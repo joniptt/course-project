@@ -1,7 +1,22 @@
-div {
+.containner {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 a {
   cursor: pointer;
+  background-color: white;
+  text-decoration: none;
+  color: #002940;
+}
+a:hover {
+  background-color: #fe7b1e;
+  color: white;
+}
+ul {
+  width: 30%;
+  margin-top: 150px;
+}
+.containner .editItens {
+  margin-top: 50px;
 }

@@ -1,29 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul id="list" class="navbar-nav">
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          [routerLinkActiveOptions]="{ exact: true }"
-          routerLinkActive="active"
-          routerLink="/"
-          >Recipe Book</a
-        >
+<nav class="header">
+  <div class="navigation">
+    <ul>
+      <li class="activeRoute">
+        <button>Recipe Book</button>
       </li>
-      <li class="nav-item">
-        <a routerLinkActive="active" routerLink="recipes" class="nav-link"
-          >Recipes</a
-        >
+      <li>
+        <button routerLinkActive="active" routerLink="recipes">Recipes</button>
       </li>
-      <li class="nav-item">
-        <a routerLinkActive="active" routerLink="shoppinglist" class="nav-link">
-          Shopping List</a
-        >
+      <li>
+        <button routerLinkActive="active" routerLink="shoppinglist">
+          Shopping List
+        </button>
       </li>
     </ul>
-    <ul id="drop" class="navbar-nav">
+  </div>
+  <div class="dropBtn">
+    <ul>
       <li ngbDropdown class="nav-item dropdown">
-        <a
+        <button
           class="nav-link dropdown-toggle"
           ngbDropdownToggle
           id="navbarDropdownMenuLink"
@@ -32,14 +26,14 @@
           aria-expanded="false"
         >
           Dropdown link
-        </a>
+        </button>
         <div
           ngbDropdownMenu
           class="dropdown-menu"
           aria-labelledby="navbarDropdownMenuLink"
         >
-          <a class="dropdown-item" href="#">Start </a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item">Start </a>
+          <a class="dropdown-item">Another action</a>
         </div>
       </li>
     </ul>

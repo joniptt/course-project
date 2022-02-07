@@ -1,11 +1,10 @@
-import { Injectable, Input } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Recipe } from '../models/recipe-model';
 import { Ingredients } from '../shared/ingredients.module';
 import { shoppingService } from './shopping.service';
 
 @Injectable()
 export class recipeService {
-  @Input() selectedRecipe: Recipe;
   recipes: Recipe[] = [
     new Recipe(
       'Hamburguer',
@@ -21,14 +20,8 @@ export class recipeService {
     ),
   ];
   constructor(private addIngr: shoppingService) {}
-  detailRecipe(name: string) {
-    var detRecipe: Recipe;
-    for (let recipe of this.recipes) {
-      if (name === recipe.name) {
-        detRecipe = recipe;
-      }
-    }
-    return detRecipe;
+  detailRecipe(index: number) {
+    return this.recipes[index];
   }
   updateRecipe(recipe: Recipe) {}
   addRecipeIngr(ingredient: Ingredients[]) {

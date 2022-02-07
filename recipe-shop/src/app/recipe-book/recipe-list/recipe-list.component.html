@@ -1,22 +1,14 @@
 <div class="pag">
   <div class="containner">
-    <div class="form">
-      <label for="name">Recipe Name</label>
-      <input type="text" id="name" [(ngModel)]="recName" />
-      <label for="desc">Recipe Description</label>
-      <input type="text" id="desc" [(ngModel)]="recDesc" />
-      <label for="">Recipe Image</label>
-      <input type="text" id="img" [(ngModel)]="recImg" />
-    </div>
-
-    <button class="btn btn-success">New Recipe</button>
     <hr />
     <app-recipe-item
       *ngFor="let recipeEl of recipes; let i = index"
       [recipe]="recipeEl"
+      [id]="i"
     ></app-recipe-item>
+    <button routerLink="new" class="nRecipe">New Recipe</button>
   </div>
-  <div>
+  <div class="detailComp">
     <router-outlet></router-outlet>
   </div>
 </div>

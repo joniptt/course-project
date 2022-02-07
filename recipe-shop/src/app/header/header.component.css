@@ -1,9 +1,33 @@
-#navbarNavDropdown {
+.header {
   display: flex;
+  padding-top: 10px;
+  background-color: #e26913;
+  align-items: center;
+  border-bottom: black solid 0.5px;
 }
-#drop {
+.dropBtn {
   margin-left: auto;
 }
-a {
+.drop-content {
+  display: none;
+}
+button {
   cursor: pointer;
+  text-decoration: none;
+  color: white;
+  background: none;
+  border: none;
+}
+ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.activeRoute {
+  margin-right: 10px;
+  font-size: large;
+}
+.active {
+  color: #002940;
 }

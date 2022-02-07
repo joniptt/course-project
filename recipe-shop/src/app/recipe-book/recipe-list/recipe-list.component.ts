@@ -10,9 +10,6 @@ import { recipeService } from 'src/app/services/recipe.service';
 export class RecipeListComponent {
   recipes: Recipe[] = this.addRecipe.recipes;
   constructor(private addRecipe: recipeService) {}
-  recName = '';
-  recDesc = '';
-  recImg = '';
 
   // addNewRecipe() {
   //   this.ingrs.push();

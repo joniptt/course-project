@@ -1,13 +1,8 @@
-<a
-  (click)="selectedData()"
-  [routerLink]="['detail', recipe.name]"
-  id="book"
-  class="list-group-item-action"
->
-  <div id="itens" class="list-group-item-action">
-    <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
-    <p class="list-group-item-text">{{ recipe.description }}</p>
+<a [routerLink]="[id]" class="book" routerLinkActive="active">
+  <div id="itens" class="">
+    <h4 id="title" class="">{{ recipe.name }}</h4>
+    <p id="desc">{{ recipe.description }}</p>
   </div>
-  <img class="list-group-item" [src]="recipe.imagePath" class="img" />
+  <img [src]="recipe.imagePath" class="img" />
   <!-- <button class="close">x</button> -->
 </a>

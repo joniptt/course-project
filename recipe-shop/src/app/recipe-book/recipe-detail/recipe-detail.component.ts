@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Recipe } from 'src/app/models/recipe-model';
 import { recipeService } from 'src/app/services/recipe.service';
 @Component({
@@ -9,19 +9,19 @@ import { recipeService } from 'src/app/services/recipe.service';
 })
 export class RecipeDetailComponent implements OnInit {
   recipeSelectedDetail: Recipe;
-
+  index: any;
   constructor(
     private viewRecipe: recipeService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private routes: Router
   ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(
       (param: Params) =>
-        (this.recipeSelectedDetail = this.viewRecipe.detailRecipe(
-          param['name']
-        ))
+        (this.recipeSelectedDetail = this.viewRecipe.detailRecipe(param['id']))
     );
+    this.route.params.subscribe((param: Params) => (this.index = param));
   }
 
   addIngr() {

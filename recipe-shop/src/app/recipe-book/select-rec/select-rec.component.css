@@ -1,0 +1,12 @@
+.containner {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  align-items: center;
+  background-color: #fe7b1e;
+  padding: 50px;
+  border-radius: 10px;
+  border: white double 1px;
+  width: 700px;
+  height: 750px;
+}

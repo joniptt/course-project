@@ -1,6 +1,4 @@
 <div class="containner">
-  <app-shopping-edit></app-shopping-edit>
-  <hr />
   <ul class="list-group">
     <a
       *ngFor="let ingredient of ingredientsList; let i = index"
@@ -10,4 +8,7 @@
       >{{ ingredient.name }} ({{ ingredient.amount }})</a
     >
   </ul>
+  <div class="editItens">
+    <app-shopping-edit></app-shopping-edit>
+  </div>
 </div>
