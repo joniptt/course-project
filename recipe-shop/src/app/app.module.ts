@@ -4,7 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
+import { UsuarioService } from './cadastro/usuario.service';
 import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './login/login.component';
 import { RecipeBookComponent } from './recipe-book/recipe-book.component';
 import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
 import { NewRecipeComponent } from './recipe-book/recipe-list/new-recipe/new-recipe.component';
@@ -27,6 +30,8 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
     RecipeItemComponent,
     RecipeDetailComponent,
     NewRecipeComponent,
+    LoginComponent,
+    CadastroComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
     RecipeRoutingModule,
     AppRoutingModule,
   ],
-  providers: [recipeService, shoppingService],
+  providers: [recipeService, shoppingService, UsuarioService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

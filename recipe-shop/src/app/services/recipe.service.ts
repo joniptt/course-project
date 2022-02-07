@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Recipe } from '../models/recipe-model';
 import { Ingredients } from '../shared/ingredients.module';
 import { shoppingService } from './shopping.service';
@@ -22,6 +23,11 @@ export class recipeService {
   constructor(private addIngr: shoppingService) {}
   detailRecipe(index: number) {
     return this.recipes[index];
+  }
+  novoObservable(): Observable<Recipe[]> {
+    return new Observable<Recipe[]>((observer) => {
+      observer.next(this.recipes);
+    });
   }
   updateRecipe(recipe: Recipe) {}
   addRecipeIngr(ingredient: Ingredients[]) {
