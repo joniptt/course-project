@@ -7,8 +7,8 @@
   padding: 50px;
   border-radius: 10px;
   border: white double 1px;
-  width: 700px;
-  height: 750px;
+  max-width: 500px;
+  max-width: 700px;
 }
 
 .recDetails {

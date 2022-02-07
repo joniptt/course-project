@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Recipe } from 'src/app/models/recipe-model';
 import { recipeService } from 'src/app/services/recipe.service';
 @Component({
@@ -12,8 +12,7 @@ export class RecipeDetailComponent implements OnInit {
   index: any;
   constructor(
     private viewRecipe: recipeService,
-    private route: ActivatedRoute,
-    private routes: Router
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {

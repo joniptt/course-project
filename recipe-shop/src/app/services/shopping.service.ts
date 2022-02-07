@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Ingredients } from '../shared/ingredients.module';
 
 export class shoppingService {
@@ -13,6 +14,11 @@ export class shoppingService {
     for (let ing of ingredient) {
       this.ingredients.push(new Ingredients(ing.name, ing.amount));
     }
+  }
+  shoppingListObservable(): Observable<Ingredients[]> {
+    return new Observable<Ingredients[]>((observer) => {
+      observer.next(this.ingredients);
+    });
   }
   removeIngredients() {}
   clearIngredients() {}

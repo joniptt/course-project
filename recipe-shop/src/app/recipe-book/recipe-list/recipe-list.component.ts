@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/models/recipe-model';
 import { recipeService } from 'src/app/services/recipe.service';
 
@@ -7,9 +7,14 @@ import { recipeService } from 'src/app/services/recipe.service';
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css'],
 })
-export class RecipeListComponent {
-  recipes: Recipe[] = this.addRecipe.recipes;
+export class RecipeListComponent implements OnInit {
+  recipes: Recipe[];
   constructor(private addRecipe: recipeService) {}
+  ngOnInit(): void {
+    this.addRecipe.novoObservable().subscribe((data) => {
+      this.recipes = data;
+    });
+  }
 
   // addNewRecipe() {
   //   this.ingrs.push();
