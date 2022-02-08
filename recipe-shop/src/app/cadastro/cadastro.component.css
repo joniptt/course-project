@@ -1,5 +1,6 @@
 label {
   color: #002940;
+  margin-top: 20px;
 }
 input {
   width: 400px;
@@ -21,7 +22,7 @@ input {
   background-color: white;
   padding: 50px;
   border-radius: 10px;
-  border: rgb(37, 34, 34) double 1px;
+
   margin-left: 30%;
   width: 500px;
   max-height: 700px;
@@ -36,8 +37,16 @@ input {
   border-radius: 5px;
   font-family: Arial, Helvetica, sans-serif;
   transition: all ease 0.5s;
+  margin-top: 40px;
 }
 .cadastro:hover {
   background-color: #80dd23;
   border: #803013 solid 0.4px;
+}
+.userAlreadyExist {
+  font-size: smaller;
+  color: red;
+}
+input.ng-invalid.ng-touched {
+  border: red solid 1px;
 }

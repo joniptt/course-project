@@ -1,11 +1,11 @@
 <div class="containner">
-  <div class="form">
+  <form [formGroup]="recipeForm" (ngSubmit)="addNewRecipe()">
     <label for="name">Recipe Name</label>
-    <input type="text" id="name" [(ngModel)]="recName" />
+    <input formControlName="recName" type="text" id="name" />
     <label for="desc">Recipe Description</label>
-    <input type="text" id="desc" [(ngModel)]="recDesc" />
+    <input formControlName="recDesc" type="text" id="desc" />
     <label for="">Recipe Image</label>
-    <input type="text" id="img" [(ngModel)]="recImg" />
-  </div>
-  <button class="addRecipe">Add</button>
+    <input formControlName="recImg" type="text" id="img" />
+    <button type="submit" class="addRecipe">Add</button>
+  </form>
 </div>

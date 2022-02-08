@@ -1,0 +1,18 @@
+{
+  "recipes": [
+    {
+      "id": 0,
+      "name": "Hamburguer",
+      "description": "Bread, Cheese, Fries, Tomato, Letuce, Meat",
+      "imagePath": "https://www.sabornamesa.com.br/media/k2/items/cache/b9ad772005653afce4d4bd46c2efe842_XL.jpg",
+      "ingredients": []
+    },
+    {
+      "id": 0,
+      "name": "Lasanha",
+      "description": "Pasta, Cheese, Meat",
+      "imagePath": "https://www.sabornamesa.com.br/media/k2/items/cache/b9ad772005653afce4d4bd46c2efe842_XL.jpg",
+      "ingredients": []
+    }
+  ]
+}

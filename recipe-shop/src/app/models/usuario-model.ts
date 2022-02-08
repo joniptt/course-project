@@ -4,5 +4,6 @@ export class Usuario {
   constructor(name: string, password: string) {
     this.nome = name;
     this.password = password;
+    this.email = email;
   }
 }

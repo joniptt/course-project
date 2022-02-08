@@ -1,4 +1,5 @@
 <div class="containner">
+<<<<<<< HEAD
   <div class="form">
     <label for="name">Name</label>
     <input type="text" id="name" [(ngModel)]="cadastroForm.nome" />
@@ -6,4 +7,48 @@
     <input type="text" id="desc" [(ngModel)]="cadastroForm.password" />
   </div>
   <button (click)="cadastrar()" class="cadastro">Cadastrar</button>
+=======
+  <form [formGroup]="signupForm" (ngSubmit)="sendForm()">
+    <div class="control">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Name" formControlName="name" />
+    </div>
+    <span
+      *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched"
+      class="userAlreadyExist"
+      >Esse campo é obrigatório!</span
+    >
+    <div class="control">
+      <label for="desc">Password</label>
+      <input
+        type="text"
+        id="desc"
+        placeholder="Password"
+        formControlName="password"
+      />
+    </div>
+    <span
+      *ngIf="
+        !signupForm.get('password').valid && signupForm.get('password').touched
+      "
+      class="userAlreadyExist"
+      >Senha muito curta</span
+    >
+    <div class="control">
+      <label for="desc">E-mail</label>
+      <input
+        type="text"
+        id="desc"
+        placeholder="E-mail"
+        formControlName="email"
+      />
+    </div>
+    <span
+      *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
+      class="userAlreadyExist"
+      >Digite um E-mail válido!</span
+    >
+    <div><button class="cadastro" type="submit">Cadastrar</button></div>
+  </form>
+>>>>>>> a076565 (Post e get)
 </div>
