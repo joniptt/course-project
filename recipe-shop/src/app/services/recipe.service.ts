@@ -1,5 +1,5 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Recipe } from '../models/recipe-model';
 import { Ingredients } from '../shared/ingredients.module';
 import { shoppingService } from './shopping.service';
@@ -20,15 +20,19 @@ export class recipeService {
       [new Ingredients('Cheese, Meat, Pasta', 1)]
     ),
   ];
-  constructor(private addIngr: shoppingService) {}
+
+  constructor(private addIngr: shoppingService, private http: HttpClient) {}
+
+  getRecipe() {
+    return this.http.get('http://localhost:3000/recipes');
+  }
+  postRecipe(recForm: Recipe) {
+    return this.http.post('http://localhost:3000/recipes', recForm);
+  }
   detailRecipe(index: number) {
     return this.recipes[index];
   }
-  novoObservable(): Observable<Recipe[]> {
-    return new Observable<Recipe[]>((observer) => {
-      observer.next(this.recipes);
-    });
-  }
+
   updateRecipe(recipe: Recipe) {}
   addRecipeIngr(ingredient: Ingredients[]) {
     this.addIngr.addRecipeIngrList(ingredient);

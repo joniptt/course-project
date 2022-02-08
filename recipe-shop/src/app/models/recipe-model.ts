@@ -17,8 +17,4 @@ export class Recipe {
     this.imagePath = imagePath;
     this.ingredients = ingredient;
   }
-  deserialize(input: any): this {
-    Object.assign(this, input);
-    return this;
-  }
 }
