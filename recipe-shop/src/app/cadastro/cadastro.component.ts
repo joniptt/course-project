@@ -12,4 +12,8 @@ export class CadastroComponent implements OnInit {
   constructor(private usuarioReq: UsuarioService) {}
 
   ngOnInit(): void {}
+  cadastrar() {
+    this.usuarioReq.envioForm(this.cadastroForm);
+    console.log(this.cadastroForm);
+  }
 }
