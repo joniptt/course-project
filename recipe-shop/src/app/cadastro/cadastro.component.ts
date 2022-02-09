@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Usuario } from '../models/usuario-model';
 import { UsuarioService } from '../services/usuario.service';
 
 @Component({
@@ -9,7 +8,6 @@ import { UsuarioService } from '../services/usuario.service';
   styleUrls: ['./cadastro.component.css'],
 })
 export class CadastroComponent implements OnInit {
-  cadastroForm: Usuario = { name: '', password: '', email: '' };
   signupForm: FormGroup;
   constructor(private usuarioReq: UsuarioService) {}
   sendForm() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Recipe } from 'src/app/models/recipe-model';
 import { recipeService } from 'src/app/services/recipe.service';
@@ -7,8 +7,8 @@ import { recipeService } from 'src/app/services/recipe.service';
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css'],
 })
-export class RecipeDetailComponent implements OnInit {
-  recipeSelectedDetail: Recipe;
+export class RecipeDetailComponent implements OnInit, OnDestroy {
+  recipeDet: Recipe;
   index: any;
   constructor(
     private viewRecipe: recipeService,
@@ -16,14 +16,19 @@ export class RecipeDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(
-      (param: Params) =>
-        (this.recipeSelectedDetail = this.viewRecipe.detailRecipe(param['id']))
-    );
-    this.route.params.subscribe((param: Params) => (this.index = param));
+    this.route.params.subscribe((param: Params) => (this.index = +param));
+    this.viewRecipe
+      .getDet()
+      .pipe()
+      .subscribe((response: Recipe[]) => {
+        for (let recipe of response) {
+          this.recipeDet = recipe[this.index];
+        }
+      });
   }
 
   addIngr() {
-    this.viewRecipe.addRecipeIngr(this.recipeSelectedDetail.ingredients);
+    this.viewRecipe.addRecIgr(this.recipeDet.ingredients);
   }
+  ngOnDestroy(): void {}
 }

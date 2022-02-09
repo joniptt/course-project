@@ -8,11 +8,18 @@
       "ingredients": []
     },
     {
-      "id": 0,
+      "id": 1,
       "name": "Lasanha",
       "description": "Pasta, Cheese, Meat",
       "imagePath": "https://www.sabornamesa.com.br/media/k2/items/cache/b9ad772005653afce4d4bd46c2efe842_XL.jpg",
       "ingredients": []
+    },
+    {
+      "name": "Panqueca",
+      "description": "adas",
+      "imagePath": "https://img.itdg.com.br/tdg/images/recipes/000/013/110/283895/283895_original.jpg?mode=crop&width=710&height=400",
+      "ingredients": [],
+      "id": 2
     }
   ]
 }
