@@ -1,0 +1,42 @@
+label {
+  color: #002940;
+}
+input {
+  width: 400px;
+  height: 35px;
+  border-radius: 7px;
+  border: none;
+  background-color: #faa86e;
+  color: #002940;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.containner {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  align-items: center;
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  margin-left: 30%;
+  width: 500px;
+  max-height: 700px;
+}
+.cadastro {
+  margin-top: 10px;
+  text-decoration: none;
+  border: #91ff21 solid 0.4px;
+  background-color: #91ff21;
+  padding: 5px 10px 5px 10px;
+  color: #002940;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: all ease 0.5s;
+}
+.cadastro:hover {
+  background-color: #80dd23;
+  border: #803013 solid 0.4px;
+}

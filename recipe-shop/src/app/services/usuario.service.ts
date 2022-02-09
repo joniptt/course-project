@@ -5,10 +5,12 @@ import { Usuario } from '../models/usuario-model';
 @Injectable()
 export class UsuarioService {
   constructor(private http: HttpClient) {}
-
-  envioForm(form: Usuario) {
-    this.http
-      .post('http://localhost:3000/usuarios', form)
+  postData(form: Usuario) {
+    return this.http.post(' http://localhost:3000/usuarios', form);
+  }
+  getData() {
+    return this.http
+      .get(' http://localhost:3000/usuarios')
       .subscribe((response) => {
         console.log(response);
       });

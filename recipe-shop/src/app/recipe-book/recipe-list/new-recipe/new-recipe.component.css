@@ -5,12 +5,12 @@ input {
   background-color: white;
   color: #002940;
 }
-.form {
+form {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
 }
-.form input {
+form input {
   width: 400px;
   height: 40px;
   border: rgb(184, 170, 170) solid 1px;
