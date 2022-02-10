@@ -7,7 +7,7 @@
     <span
       *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched"
       class="userAlreadyExist"
-      >Esse campo é obrigatório!</span
+      >Por favor preencha o campo!</span
     >
     <div class="control">
       <label for="desc">Password</label>
@@ -39,6 +39,10 @@
       class="userAlreadyExist"
       >Digite um E-mail válido!</span
     >
-    <div><button class="cadastro" type="submit">Cadastrar</button></div>
+    <div>
+      <button [disabled]="isLoading" class="cadastro" type="submit">
+        Cadastrar
+      </button>
+    </div>
   </form>
 </div>

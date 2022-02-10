@@ -7,7 +7,7 @@ import { Usuario } from '../models/usuario-model';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  loginForm: Usuario = { name: '', password: '', email: '' };
+  loginForm: Usuario;
   constructor() {}
   getUsuario() {}
   ngOnInit(): void {}
