@@ -9,14 +9,11 @@ import { shoppingService } from './shopping.service';
 export class recipeService {
   constructor(private addIngr: shoppingService, private http: HttpClient) {}
 
-  getRecipe(): Observable<Recipe[]> {
+  getRec() {
     return this.http.get<Recipe[]>('http://localhost:3000/recipes');
   }
-  postRecipe(recForm: Recipe) {
+  postRec(recForm: Recipe) {
     return this.http.post('http://localhost:3000/recipes', recForm);
-  }
-  getDet() {
-    return this.http.get<Recipe[]>('http://localhost:3000/recipes');
   }
 
   addRecIgr(ingredient: Ingredients[]) {

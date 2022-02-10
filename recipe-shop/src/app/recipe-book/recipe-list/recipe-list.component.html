@@ -1,5 +1,6 @@
 <div class="pag">
   <div class="containner">
+    <input type="text" [(ngModel)]="filterName" />
     <hr />
     <app-recipe-item
       *ngFor="let recipeEl of recipes; let i = index"

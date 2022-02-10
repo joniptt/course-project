@@ -7,7 +7,7 @@ import { Usuario } from '../models/usuario-model';
 export class UsuarioService {
   constructor(private http: HttpClient) {}
   postData(form: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(' http://localhost:3000/usuarios', form);
+    return this.http.post<Usuario>('http://localhost:3000/usuarios', form);
   }
   getData() {
     return this.http

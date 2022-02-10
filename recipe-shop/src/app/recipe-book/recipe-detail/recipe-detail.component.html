@@ -24,9 +24,7 @@
   <div ngbDropdown class="d-inline-block" id="dropButton">
     <button class="dropBtn" ngbDropdownToggle>Manage Recipe</button>
     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-      <button (click)="addIngr()" ngbDropdownItem>
-        Add Ingridients Recipe to Shopping List
-      </button>
+      <button ngbDropdownItem>Add Ingridients Recipe to Shopping List</button>
       <button [routerLink]="[index, 'edit']" ngbDropdownItem>
         Edit Recipe
       </button>
