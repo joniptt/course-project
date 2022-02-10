@@ -26,7 +26,9 @@ export class NewRecipeComponent implements OnInit {
       imagePath: this.recipeForm.get('recImg').value,
       ingredients: this.recipeForm.get('recIng').value,
     };
-    this.postRec.postRecipe(recipe).subscribe((response) => {
+    let form: FormData = new FormData();
+    form.append('recipe', JSON.stringify(recipe));
+    this.postRec.postRec(recipe).subscribe((response) => {
       console.log(response);
     });
     console.log(recipe);

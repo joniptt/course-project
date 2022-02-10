@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { ShortenPipe } from './pipes/shorten.pipe';
+import { SlicePipe } from './pipes/slice.pipe';
 import { RecipeBookComponent } from './recipe-book/recipe-book.component';
 import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
 import { NewRecipeComponent } from './recipe-book/recipe-list/new-recipe/new-recipe.component';
@@ -19,6 +22,7 @@ import { shoppingService } from './services/shopping.service';
 import { UsuarioService } from './services/usuario.service';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,9 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
     NewRecipeComponent,
     LoginComponent,
     CadastroComponent,
+    ShortenPipe,
+    SlicePipe,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +49,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [recipeService, shoppingService, UsuarioService],
   bootstrap: [AppComponent],

@@ -9,12 +9,9 @@ import { UsuarioService } from '../services/usuario.service';
   styleUrls: ['./cadastro.component.css'],
 })
 export class CadastroComponent implements OnInit {
-  cadastroForm: Usuario = { name: '', password: '', email: '' };
   signupForm: FormGroup;
+  isLoading = false;
   constructor(private usuarioReq: UsuarioService) {}
-  sendForm() {
-    console.log(this.signupForm);
-  }
   ngOnInit(): void {
     this.signupForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(7)]),
@@ -24,5 +21,18 @@ export class CadastroComponent implements OnInit {
       ]),
       email: new FormControl('', [Validators.required, Validators.email]),
     });
+  }
+  sendForm() {
+    this.isLoading = true;
+    if (!this.signupForm.invalid) {
+      let cad: Usuario = this.signupForm.value;
+      this.usuarioReq.postData(cad).subscribe((response) => {
+        this.isLoading = false;
+        console.log(response);
+      });
+    } else {
+      this.isLoading = false;
+      console.log('Formulário inválido!');
+    }
   }
 }
