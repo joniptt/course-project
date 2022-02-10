@@ -8,7 +8,7 @@ import { recipeService } from 'src/app/services/recipe.service';
   styleUrls: ['./recipe-detail.component.css'],
 })
 export class RecipeDetailComponent implements OnInit, OnDestroy {
-  recipeDet: Recipe;
+  recipeDet: Recipe = new Recipe('', '', '', []);
   index: any;
   constructor(
     private viewRecipe: recipeService,
@@ -17,14 +17,12 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.route.params.subscribe((param: Params) => (this.index = +param));
-    this.viewRecipe
-      .getDet()
-      .pipe()
-      .subscribe((response: Recipe[]) => {
-        for (let recipe of response) {
-          this.recipeDet = recipe[this.index];
-        }
-      });
+    this.viewRecipe.getDet().subscribe((response) => {
+      for (let recipe of response) {
+        this.recipeDet = recipe[this.index];
+      }
+      console.log(this.recipeDet);
+    });
   }
 
   addIngr() {

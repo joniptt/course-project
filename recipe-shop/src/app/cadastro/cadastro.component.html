@@ -6,7 +6,7 @@
     </div>
     <span
       *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched"
-      class="userAlreadyExist"
+      class="validation"
       >Esse campo é obrigatório!</span
     >
     <div class="control">
@@ -22,7 +22,7 @@
       *ngIf="
         !signupForm.get('password').valid && signupForm.get('password').touched
       "
-      class="userAlreadyExist"
+      class="validation"
       >Senha muito curta</span
     >
     <div class="control">
@@ -36,7 +36,7 @@
     </div>
     <span
       *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
-      class="userAlreadyExist"
+      class="validation"
       >Digite um E-mail válido!</span
     >
     <div><button class="cadastro" type="submit">Cadastrar</button></div>

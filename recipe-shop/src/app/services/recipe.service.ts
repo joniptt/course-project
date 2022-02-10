@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Recipe } from '../models/recipe-model';
 import { Ingredients } from '../shared/ingredients.module';
 import { shoppingService } from './shopping.service';
@@ -8,8 +9,8 @@ import { shoppingService } from './shopping.service';
 export class recipeService {
   constructor(private addIngr: shoppingService, private http: HttpClient) {}
 
-  getRecipe() {
-    return this.http.get('http://localhost:3000/recipes');
+  getRecipe(): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>('http://localhost:3000/recipes');
   }
   postRecipe(recForm: Recipe) {
     return this.http.post('http://localhost:3000/recipes', recForm);

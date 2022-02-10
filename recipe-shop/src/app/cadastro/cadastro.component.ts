@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Usuario } from '../models/usuario-model';
 import { UsuarioService } from '../services/usuario.service';
 
 @Component({
@@ -10,9 +11,6 @@ import { UsuarioService } from '../services/usuario.service';
 export class CadastroComponent implements OnInit {
   signupForm: FormGroup;
   constructor(private usuarioReq: UsuarioService) {}
-  sendForm() {
-    console.log(this.signupForm);
-  }
   ngOnInit(): void {
     this.signupForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(7)]),
@@ -22,5 +20,19 @@ export class CadastroComponent implements OnInit {
       ]),
       email: new FormControl('', [Validators.required, Validators.email]),
     });
+  }
+  sendForm() {
+    let form: Usuario = {
+      name: this.signupForm.get('name').value,
+      password: this.signupForm.get('password').value,
+      email: this.signupForm.get('email').value,
+    };
+    if (this.signupForm.invalid) {
+      console.log('Não foi possível enviar o formulário!');
+    } else {
+      this.usuarioReq.postData(form).subscribe((response) => {
+        console.log(response);
+      });
+    }
   }
 }

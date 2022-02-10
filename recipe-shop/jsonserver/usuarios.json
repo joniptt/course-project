@@ -5,6 +5,18 @@
       "name": "",
       "password": "",
       "e-mail": ""
+    },
+    {
+      "name": "João Antonio Soares dos Passos ",
+      "password": "3213216565",
+      "email": "jdospassos8@gmail.com",
+      "id": 2
+    },
+    {
+      "name": "João Antonio Soares dos Passos ",
+      "password": "1231235656",
+      "email": "jdospassos8@gmail.com",
+      "id": 3
     }
   ]
 }

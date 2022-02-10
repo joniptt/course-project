@@ -43,7 +43,7 @@ input {
   background-color: #80dd23;
   border: #803013 solid 0.4px;
 }
-.userAlreadyExist {
+.validation {
   font-size: smaller;
   color: red;
 }
