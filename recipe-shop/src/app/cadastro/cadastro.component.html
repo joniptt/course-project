@@ -1,13 +1,4 @@
 <div class="containner">
-<<<<<<< HEAD
-  <div class="form">
-    <label for="name">Name</label>
-    <input type="text" id="name" [(ngModel)]="cadastroForm.nome" />
-    <label for="desc">Passowrd</label>
-    <input type="text" id="desc" [(ngModel)]="cadastroForm.password" />
-  </div>
-  <button (click)="cadastrar()" class="cadastro">Cadastrar</button>
-=======
   <form [formGroup]="signupForm" (ngSubmit)="sendForm()">
     <div class="control">
       <label for="name">Name</label>
@@ -54,5 +45,5 @@
       </button>
     </div>
   </form>
->>>>>>> a076565 (Post e get)
+  >>>>>>> a076565 (Post e get)
 </div>
