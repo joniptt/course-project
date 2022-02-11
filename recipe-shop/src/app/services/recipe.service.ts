@@ -1,16 +1,23 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable, Input } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { Recipe } from '../models/recipe-model';
 import { Ingredients } from '../shared/ingredients.module';
 import { shoppingService } from './shopping.service';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class recipeService {
   constructor(private addIngr: shoppingService, private http: HttpClient) {}
-
+  @Input() recId: number;
   getRec() {
     return this.http.get<Recipe[]>('http://localhost:3000/recipes');
+  }
+  getDet() {
+    return this.http.get<Recipe[]>('http://localhost:3000/recipes').pipe(
+      map((responseData) => {
+        return responseData[this.recId];
+      })
+    );
   }
   postRec(recForm: Recipe) {
     return this.http.post('http://localhost:3000/recipes', recForm);

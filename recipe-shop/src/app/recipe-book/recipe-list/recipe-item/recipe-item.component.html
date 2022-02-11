@@ -1,4 +1,9 @@
-<a [routerLink]="[id]" class="book" routerLinkActive="active">
+<a
+  [routerLink]="[id]"
+  (click)="sendId()"
+  class="book"
+  routerLinkActive="active"
+>
   <div id="itens" class="">
     <h4 id="title" class="">{{ recipe.name }}</h4>
     <p id="desc">{{ recipe.description }}</p>
