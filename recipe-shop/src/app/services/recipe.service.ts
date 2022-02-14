@@ -12,12 +12,15 @@ export class recipeService {
   getRec() {
     return this.http.get<Recipe[]>('http://localhost:3000/recipes');
   }
-  getDet() {
+  getDet(index: number) {
     return this.http.get<Recipe[]>('http://localhost:3000/recipes').pipe(
-      map((responseData) => {
-        return responseData[this.recId];
+      map((response) => {
+        return response[index];
       })
     );
+  }
+  delRec() {
+    return this.http.delete('http://localhost:3000/recipes/recipes');
   }
   postRec(recForm: Recipe) {
     return this.http.post('http://localhost:3000/recipes', recForm);

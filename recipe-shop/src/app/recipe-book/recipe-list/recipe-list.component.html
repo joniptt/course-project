@@ -8,6 +8,9 @@
       [id]="i"
     ></app-recipe-item>
     <button routerLink="new" class="nRecipe">New Recipe</button>
+    <button (click)="clear()" id="cRec" class="btn btn-danger">
+      Clear Recipe Book
+    </button>
   </div>
   <div class="detailComp">
     <router-outlet></router-outlet>

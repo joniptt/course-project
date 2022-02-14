@@ -1,11 +1,13 @@
 <div class="containner">
   <form [formGroup]="recipeForm" (ngSubmit)="addNewRecipe()">
     <label for="name">Recipe Name</label>
-    <input formControlName="recName" type="text" id="name" />
+    <input formControlName="name" type="text" id="name" />
     <label for="desc">Recipe Description</label>
-    <input formControlName="recDesc" type="text" id="desc" />
+    <input formControlName="description" type="text" id="desc" />
     <label for="">Recipe Image</label>
-    <input formControlName="recImg" type="text" id="img" />
+    <input formControlName="imagePath" type="text" id="img" />
     <button type="submit" class="addRecipe">Add</button>
   </form>
+  <span *ngIf="loading">Loading...</span>
+  <span class="alert alert-danger">An error occured</span>
 </div>

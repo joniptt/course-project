@@ -10,10 +10,15 @@ import { recipeService } from 'src/app/services/recipe.service';
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
   filterName = '';
-  constructor(private addRecipe: recipeService) {}
+  constructor(private manRecipe: recipeService) {}
   ngOnInit(): void {
-    this.addRecipe.getRec().subscribe((recipes: Recipe[]) => {
+    this.manRecipe.getRec().subscribe((recipes: Recipe[]) => {
       this.recipes = recipes;
+    });
+  }
+  clear() {
+    this.manRecipe.delRec().subscribe(() => {
+      this.recipes = [];
     });
   }
 

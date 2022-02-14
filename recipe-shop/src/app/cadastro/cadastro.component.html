@@ -6,7 +6,7 @@
     </div>
     <span
       *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched"
-      class="userAlreadyExist"
+      class="validation"
       >Por favor preencha o campo!</span
     >
     <div class="control">
@@ -40,9 +40,8 @@
       >Digite um E-mail válido!</span
     >
     <div>
-      <button [disabled]="isLoading" class="cadastro" type="submit">
-        Cadastrar
-      </button>
+      <button class="cadastro" type="submit">Cadastrar</button>
     </div>
   </form>
+  <span *ngIf="isLoading">Loading...</span>
 </div>

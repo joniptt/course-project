@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Recipe } from 'src/app/models/recipe-model';
 import { recipeService } from 'src/app/services/recipe.service';
 @Component({
@@ -13,15 +14,22 @@ export class RecipeDetailComponent implements OnInit {
     imagePath: '',
     ingredients: [],
   };
-  index: number;
-  constructor(private viewRecipe: recipeService) {}
+  index = 0;
+  constructor(
+    private viewRecipe: recipeService,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit(): void {
-    this.viewRecipe.getDet().subscribe((response: Recipe) => {
+  ngOnInit(): void {}
+  ngOnChanges(changes: SimpleChanges): void {
+    this.route.params.subscribe((response) => {
+      this.index = +response['id'];
       console.log(response);
+    });
+
+    this.viewRecipe.getDet(this.index).subscribe((response) => {
       this.recipeDet = response;
+      console.log(response);
     });
   }
-
-  ngOnDestroy(): void {}
 }
