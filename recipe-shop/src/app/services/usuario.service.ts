@@ -6,8 +6,10 @@ import { Usuario } from '../models/usuario-model';
 @Injectable()
 export class UsuarioService {
   constructor(private http: HttpClient) {}
-  postData(form: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>('http://localhost:3000/usuarios', form);
+  postData(form: any): Observable<any> {
+    return this.http.post<Usuario>('http://localhost:3000/usuarios', {
+      params: form,
+    });
   }
   getData() {
     return this.http
