@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, Input } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Recipe } from '../models/recipe-model';
@@ -10,7 +10,9 @@ export class recipeService {
   constructor(private addIngr: shoppingService, private http: HttpClient) {}
   @Input() recId: number;
   getRec() {
-    return this.http.get<Recipe[]>('http://localhost:3000/recipes');
+    return this.http.get<Recipe[]>('http://localhost:3000/recipes', {
+      headers: new HttpHeaders('Custom-headers: hello'),
+    });
   }
   getDet(index: number) {
     return this.http.get<Recipe[]>('http://localhost:3000/recipes').pipe(

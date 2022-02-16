@@ -36,11 +36,12 @@ export class CadastroComponent implements OnInit {
         (error) => {
           error = console.log('Não foi possível realizar o cadastro');
           this.isLoading = false;
-          this.varError = error.status;
+          this.varError = error;
         }
       );
     } else {
       this.isLoading = false;
+      alert('Formulário inválido');
       console.log('Formulário inválido!');
     }
   }
