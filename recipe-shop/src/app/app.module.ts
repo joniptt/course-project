@@ -12,10 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { SlicePipe } from './pipes/slice.pipe';
-import { RecipeBookComponent } from './recipe-book/recipe-book.component';
 import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
 import { NewRecipeComponent } from './recipe-book/recipe-list/new-recipe/new-recipe.component';
-import { RecipeItemComponent } from './recipe-book/recipe-list/recipe-item/recipe-item.component';
 import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.component';
 import { RecipeRoutingModule } from './recipe-book/recipe.module';
 import { AuthInterpceptorService } from './services/auth-interceptor.service';
@@ -32,9 +30,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
     HeaderComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    RecipeBookComponent,
     RecipeListComponent,
-    RecipeItemComponent,
     RecipeDetailComponent,
     NewRecipeComponent,
     LoginComponent,

@@ -8,12 +8,12 @@ import { selectRecipeComponent } from './select-rec/select-rec.component';
 
 const recipeRoute: Routes = [
   {
-    path: 'recipes',
+    path: '',
     component: RecipeListComponent,
     children: [
       { path: '', component: selectRecipeComponent },
+      { path: 'detail', component: RecipeDetailComponent },
       { path: 'new', component: NewRecipeComponent },
-      { path: ':id', component: RecipeDetailComponent },
       { path: ':id/edit', component: RecipeEditComponent },
     ],
   },

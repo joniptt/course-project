@@ -1,18 +1,30 @@
-<div class="pag">
-  <div class="containner">
-    <input type="text" [(ngModel)]="filterName" />
-    <hr />
-    <app-recipe-item
-      *ngFor="let recipeEl of recipes; let i = index"
-      [recipe]="recipeEl"
-      [id]="i"
-    ></app-recipe-item>
-    <button routerLink="new" class="nRecipe">New Recipe</button>
-    <button (click)="clear()" id="cRec" class="btn btn-danger">
-      Clear Recipe Book
-    </button>
+<div class="row my-5">
+  <div class="col">
+    <div class="container">
+      <hr />
+      <a
+        *ngFor="let recipe of recipes; let i = index"
+        (click)="goTo(i)"
+        class="book"
+        routerLinkActive="active"
+      >
+        <div id="itens" class="">
+          <h4 id="title" class="">{{ recipe.name }}</h4>
+          <p id="desc">{{ recipe.description }}</p>
+        </div>
+        <img [src]="recipe.imagePath" class="img" />
+      </a>
+      <button routerLink="new" class="nRecipe">New Recipe</button>
+      <button (click)="clear()" id="cRec" class="btn btn-danger">
+        Clear Recipe Book
+      </button>
+      <button (click)="loadRecipes()" id="cRec" class="btn btn-primary">
+        Fetch Recipes
+      </button>
+    </div>
   </div>
-  <div class="detailComp">
+  <div class="col">
     <router-outlet></router-outlet>
   </div>
+  <div class="col-1"></div>
 </div>

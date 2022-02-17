@@ -34,6 +34,7 @@ export class NewRecipeComponent implements OnInit {
       );
     } else {
       console.log('Preencha os campos');
+      alert('Dados para receita inválidos!');
       this.loading = false;
     }
   }
