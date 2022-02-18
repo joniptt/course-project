@@ -1,4 +1,4 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Recipe } from 'src/app/models/recipe-model';
 import { recipeService } from 'src/app/services/recipe.service';
@@ -7,7 +7,7 @@ import { recipeService } from 'src/app/services/recipe.service';
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css'],
 })
-export class RecipeDetailComponent implements OnInit {
+export class RecipeDetailComponent implements OnInit, DoCheck {
   recipeDet: Recipe = {
     name: '',
     description: '',
@@ -20,16 +20,21 @@ export class RecipeDetailComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {}
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnInit(): void {
     this.route.params.subscribe((response) => {
       this.index = +response['id'];
       console.log(response);
     });
+  }
 
-    this.viewRecipe.getDet(this.index).subscribe((response) => {
-      this.recipeDet = response;
-      console.log(response);
-    });
+
+  ngDoCheck(): void {
+
+    if (this.index != ) {
+      this.viewRecipe.getDet(this.index).subscribe((response) => {
+        this.recipeDet = response;
+        console.log(response);
+      });
+    }
   }
 }
