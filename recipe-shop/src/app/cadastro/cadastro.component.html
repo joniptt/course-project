@@ -1,47 +1,75 @@
-<div class="containner">
+<div class="container my-4">
   <form [formGroup]="signupForm" (ngSubmit)="sendForm()">
-    <div class="control">
-      <label for="name">Name</label>
-      <input type="text" id="name" placeholder="Name" formControlName="name" />
-    </div>
-    <span
-      *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched"
-      class="validation"
-      >Por favor preencha o campo!</span
-    >
-    <div class="control">
-      <label for="desc">Password</label>
-      <input
-        type="text"
-        id="desc"
-        placeholder="Password"
-        formControlName="password"
-      />
-    </div>
-    <span
-      *ngIf="
-        !signupForm.get('password').valid && signupForm.get('password').touched
-      "
-      class="validation"
-      >Senha muito curta</span
-    >
-    <div class="control">
-      <label for="desc">E-mail</label>
-      <input
-        type="text"
-        id="desc"
-        placeholder="E-mail"
-        formControlName="email"
-      />
-    </div>
-    <span
-      *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
-      class="validation"
-      >Digite um E-mail válido!</span
-    >
-    <div>
-      <button class="cadastro" type="submit">Cadastrar</button>
+    <div class="col">
+      <div>
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Name"
+          formControlName="name"
+        />
+        <span
+          *ngIf="
+            !signupForm.get('name').valid && signupForm.get('name').touched
+          "
+          class="validation"
+          >Por favor preencha o campo!</span
+        >
+      </div>
+      <div>
+        <label for="desc">Password</label>
+        <input
+          type="text"
+          id="desc"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <span
+          *ngIf="
+            !signupForm.get('password').valid &&
+            signupForm.get('password').touched
+          "
+          class="validation"
+          >Senha muito curta!</span
+        >
+      </div>
+      <div>
+        <label for="desc">E-mail</label>
+        <input
+          type="text"
+          id="desc"
+          placeholder="E-mail"
+          formControlName="email"
+        />
+        <span
+          *ngIf="
+            !signupForm.get('email').valid && signupForm.get('email').touched
+          "
+          class="validation"
+        >
+          Digite um E-mail válido!</span
+        >
+      </div>
+      <div *ngIf="isLoading" class="d-flex justify-content-center my-4">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div class="d-flex my-3">
+        <div class="mr-2">
+          <button
+            [disabled]="signupForm.invalid"
+            class="btn btn-primary"
+            type="submit"
+          >
+            Sign Up
+          </button>
+        </div>
+        <button class="btn btn-primary" type="button" (click)="toLogin()">
+          To Sign In
+        </button>
+      </div>
     </div>
   </form>
-  <span *ngIf="isLoading">Loading...</span>
 </div>

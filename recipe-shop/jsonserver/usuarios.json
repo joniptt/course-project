@@ -7,40 +7,12 @@
       "e-mail": ""
     },
     {
-      "name": "sdadsadad",
-      "password": "3213123",
-      "email": "jdospasso8@gmail.com",
+      "params": {
+        "name": "JoAO ANTONIO SOARES DOS ",
+        "password": "3213123",
+        "email": "jdospasso8@gmail.com"
+      },
       "id": 2
-    },
-    {
-      "name": "sdadsadad",
-      "password": "3213123",
-      "email": "jdospasso8@gmail.com",
-      "id": 3
-    },
-    {
-      "name": "sdadsadad",
-      "password": "3213123",
-      "email": "jdospasso8@gmail.com",
-      "id": 4
-    },
-    {
-      "name": "sdadsadad",
-      "password": "3213123",
-      "email": "jdospasso8@gmail.com",
-      "id": 5
-    },
-    {
-      "name": "sdadsadad",
-      "password": "3213123",
-      "email": "jdospasso8@gmail.com",
-      "id": 6
-    },
-    {
-      "name": "sdadsadad",
-      "password": "3213123",
-      "email": "jdospasso8@gmail.com",
-      "id": 7
     }
   ]
 }

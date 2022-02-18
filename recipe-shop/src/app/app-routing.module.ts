@@ -7,7 +7,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 const appRoutes: Routes = [
   { path: 'shoppinglist', component: ShoppingListComponent },
   {
-    path: 'recipebook',
+    path: 'recipes',
     loadChildren: () =>
       import('./recipe-book/recipe.module').then((m) => m.RecipeRoutingModule),
   },

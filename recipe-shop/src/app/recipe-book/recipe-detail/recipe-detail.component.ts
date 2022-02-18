@@ -1,5 +1,6 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
 import { Recipe } from 'src/app/models/recipe-model';
 import { recipeService } from 'src/app/services/recipe.service';
 @Component({
@@ -7,13 +8,8 @@ import { recipeService } from 'src/app/services/recipe.service';
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css'],
 })
-export class RecipeDetailComponent implements OnInit, DoCheck {
-  recipeDet: Recipe = {
-    name: '',
-    description: '',
-    imagePath: '',
-    ingredients: [],
-  };
+export class RecipeDetailComponent implements OnInit, OnChanges {
+  recipeDet: Recipe = {};
   index = 0;
   constructor(
     private viewRecipe: recipeService,
@@ -21,20 +17,31 @@ export class RecipeDetailComponent implements OnInit, DoCheck {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((response) => {
-      this.index = +response['id'];
-      console.log(response);
-    });
-  }
-
-
-  ngDoCheck(): void {
-
-    if (this.index != ) {
-      this.viewRecipe.getDet(this.index).subscribe((response) => {
-        this.recipeDet = response;
-        console.log(response);
+    this.index = this.viewRecipe.recId;
+    this.viewRecipe
+      .getDet()
+      .pipe(
+        map((response) => {
+          return response[this.index];
+        })
+      )
+      .subscribe((recDet) => {
+        console.log(recDet);
+        this.recipeDet = recDet;
       });
-    }
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.index = this.viewRecipe.recId;
+    this.viewRecipe
+      .getDet()
+      .pipe(
+        map((response) => {
+          return response[this.index];
+        })
+      )
+      .subscribe((recDet) => {
+        console.log(recDet);
+        this.recipeDet = recDet;
+      });
   }
 }

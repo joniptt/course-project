@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from 'src/app/models/recipe-model';
 import { recipeService } from 'src/app/services/recipe.service';
 
@@ -8,12 +9,21 @@ import { recipeService } from 'src/app/services/recipe.service';
   styleUrls: ['./recipe-list.component.css'],
 })
 export class RecipeListComponent implements OnInit {
-  recipes: Recipe[];
-  filterName = '';
-  constructor(private manRecipe: recipeService) {}
-  ngOnInit(): void {
-    this.manRecipe.getRec().subscribe((recipes: Recipe[]) => {
-      this.recipes = recipes;
+  recipes: Recipe[] = [];
+
+  constructor(
+    private manRecipe: recipeService,
+    private router: Router,
+    private thisRoute: ActivatedRoute
+  ) {}
+  ngOnInit(): void {}
+  goTo(index: number) {
+    this.manRecipe.recId = index;
+    this.router.navigate(['detail'], { relativeTo: this.thisRoute });
+  }
+  loadRecipes() {
+    this.manRecipe.getRec().subscribe((recipes: Recipe) => {
+      this.recipes.push(recipes);
     });
   }
   clear() {

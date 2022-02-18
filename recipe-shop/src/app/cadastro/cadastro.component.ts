@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Usuario } from '../models/usuario-model';
 import { UsuarioService } from '../services/usuario.service';
 
@@ -13,7 +14,7 @@ export class CadastroComponent implements OnInit {
   isLoading = false;
   error = null;
   varError = '';
-  constructor(private usuarioReq: UsuarioService) {}
+  constructor(private usuarioReq: UsuarioService, private route: Router) {}
   ngOnInit(): void {
     this.signupForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(7)]),
@@ -24,23 +25,29 @@ export class CadastroComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
     });
   }
+  toLogin() {
+    this.route.navigate(['login']);
+  }
   sendForm() {
     this.isLoading = true;
     let cad: Usuario = this.signupForm.value;
     if (!this.signupForm.invalid) {
-      this.usuarioReq.postData(cad).subscribe(
+      this.usuarioReq.cad(cad).subscribe(
         (response) => {
           this.isLoading = false;
+          this.signupForm.reset();
           console.log(response);
         },
         (error) => {
           error = console.log('Não foi possível realizar o cadastro');
           this.isLoading = false;
-          this.varError = error.status;
+          this.signupForm.reset();
+          this.varError = error;
         }
       );
     } else {
       this.isLoading = false;
+      alert('Formulário inválido');
       console.log('Formulário inválido!');
     }
   }

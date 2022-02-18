@@ -40,3 +40,47 @@ img {
 #cRec {
   margin-left: 10px;
 }
+.forms-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+img {
+  max-width: 70px;
+  max-height: 70px;
+}
+.book {
+  height: 80px;
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-decoration: none;
+  align-items: center;
+  border-radius: 7px;
+  cursor: pointer;
+  border: #fe7b1e solid 0.5px;
+  background-color: #fe7b1e;
+  padding-left: 10px;
+  margin-top: 3px;
+  transition: all ease 0.5s;
+}
+
+.book img {
+  padding-right: 10px;
+}
+
+#title {
+  color: white;
+}
+#desc {
+  color: #002940;
+}
+.book:hover {
+  background-color: #e26913;
+  border: #803013 solid 0.5px;
+}
+.active {
+  background-color: #e26913;
+  border: #803013 solid 0.5px;
+}

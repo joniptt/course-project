@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, Input } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Recipe } from '../models/recipe-model';
 import { Ingredients } from '../shared/ingredients.module';
 import { shoppingService } from './shopping.service';
@@ -9,21 +9,26 @@ import { shoppingService } from './shopping.service';
 export class recipeService {
   constructor(private addIngr: shoppingService, private http: HttpClient) {}
   @Input() recId: number;
-  getRec() {
-    return this.http.get<Recipe[]>('http://localhost:3000/recipes');
-  }
-  getDet(index: number) {
-    return this.http.get<Recipe[]>('http://localhost:3000/recipes').pipe(
-      map((response) => {
-        return response[index];
-      })
+  reciDetail: Recipe;
+  getRec(): Observable<Recipe> {
+    return this.http.get<Recipe>(
+      'https://consumo-api-b2e4c-default-rtdb.firebaseio.com/recipes.json',
+      {
+        headers: new HttpHeaders('Custom-headers: hello'),
+      }
     );
   }
-  delRec() {
-    return this.http.delete('http://localhost:3000/recipes/recipes');
+  getDet() {
+    return this.http.get<Recipe[]>('http://localhost:3000/recipes');
   }
-  postRec(recForm: Recipe) {
-    return this.http.post('http://localhost:3000/recipes', recForm);
+  delRec() {
+    return this.http.delete('http://localhost:3000/recipes');
+  }
+  postRec(recForm: Recipe): Observable<Recipe> {
+    return this.http.post<Recipe>(
+      'https://consumo-api-b2e4c-default-rtdb.firebaseio.com/recipes.json',
+      recForm
+    );
   }
 
   addRecIgr(ingredient: Ingredients[]) {
