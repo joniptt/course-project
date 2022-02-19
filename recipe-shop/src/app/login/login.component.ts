@@ -14,8 +14,11 @@ export class LoginComponent implements OnInit {
   constructor(private route: Router, private getLogin: UsuarioService) {}
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
+      Email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
     });
   }
   submit() {

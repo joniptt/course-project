@@ -1,4 +1,4 @@
-.containner {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,11 +8,6 @@
   border: white double 1px;
   max-width: 500px;
   max-width: 700px;
-}
-
-.recDetails {
-  overflow-wrap: break-word;
-  max-height: 100%;
 }
 
 img {

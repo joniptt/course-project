@@ -2,19 +2,20 @@
   <form [formGroup]="signupForm" (ngSubmit)="sendForm()">
     <div class="col">
       <div>
-        <label for="name">Name</label>
+        <label for="desc">E-mail</label>
         <input
           type="text"
-          id="name"
-          placeholder="Name"
-          formControlName="name"
+          id="desc"
+          placeholder="E-mail"
+          formControlName="email"
         />
         <span
           *ngIf="
-            !signupForm.get('name').valid && signupForm.get('name').touched
+            !signupForm.get('email').valid && signupForm.get('email').touched
           "
           class="validation"
-          >Por favor preencha o campo!</span
+        >
+          Digite um E-mail válido!</span
         >
       </div>
       <div>
@@ -32,23 +33,6 @@
           "
           class="validation"
           >Senha muito curta!</span
-        >
-      </div>
-      <div>
-        <label for="desc">E-mail</label>
-        <input
-          type="text"
-          id="desc"
-          placeholder="E-mail"
-          formControlName="email"
-        />
-        <span
-          *ngIf="
-            !signupForm.get('email').valid && signupForm.get('email').touched
-          "
-          class="validation"
-        >
-          Digite um E-mail válido!</span
         >
       </div>
       <div *ngIf="isLoading" class="d-flex justify-content-center my-4">

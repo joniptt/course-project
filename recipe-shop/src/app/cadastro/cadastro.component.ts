@@ -17,12 +17,11 @@ export class CadastroComponent implements OnInit {
   constructor(private usuarioReq: UsuarioService, private route: Router) {}
   ngOnInit(): void {
     this.signupForm = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.minLength(7)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(7),
       ]),
-      email: new FormControl('', [Validators.required, Validators.email]),
     });
   }
   toLogin() {
@@ -43,6 +42,7 @@ export class CadastroComponent implements OnInit {
           this.isLoading = false;
           this.signupForm.reset();
           this.varError = error;
+          alert('Não foi possível realizar o cadastro no servidor!');
         }
       );
     } else {

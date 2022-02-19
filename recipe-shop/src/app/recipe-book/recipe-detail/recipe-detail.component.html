@@ -1,5 +1,5 @@
-<div class="containner">
-  <div class="recDetails">
+<div *ngIf="recipeDet.name != null" class="container">
+  <div class="d-flex flex-column">
     <img [src]="recipeDet.imagePath" alt="" />
     <h1 class="title">{{ recipeDet.name }}</h1>
     <div class="recDesc">

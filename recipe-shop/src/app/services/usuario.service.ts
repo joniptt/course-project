@@ -8,7 +8,7 @@ export class UsuarioService {
   constructor(private http: HttpClient) {}
   cad(form: Usuario): Observable<Usuario> {
     return this.http.post<any>(
-      'https://consumo-api-b2e4c-default-rtdb.firebaseio.com/usuarios.json',
+      'http://localhost:3000/usuarios/cadastrar',
       form
     );
   }
