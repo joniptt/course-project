@@ -22,7 +22,6 @@ export class NewRecipeComponent implements OnInit {
   }
   addNewRecipe() {
     let recipe = this.recipeForm.value;
-
     this.loading = true;
     if (!this.recipeForm.invalid) {
       this.postRec.postRec(recipe).subscribe(

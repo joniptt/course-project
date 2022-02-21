@@ -25,10 +25,7 @@ export class recipeService {
   }
 
   postRec(recForm: Recipe): Observable<Recipe> {
-    return this.http.post<Recipe>(
-      'https://consumo-api-b2e4c-default-rtdb.firebaseio.com/recipes.json',
-      recForm
-    );
+    return this.http.post<Recipe>('http://localhost:3000/recipes/add', recForm);
   }
 
   addRecIgr(ingredient: Ingredients[]) {

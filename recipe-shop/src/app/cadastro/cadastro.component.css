@@ -14,14 +14,13 @@ input {
 .container {
   display: flex;
   flex-direction: column;
-
   align-items: center;
   background-color: white;
   padding: 50px;
   border-radius: 10px;
   margin-left: 30%;
   width: 500px;
-  max-height: 700px;
+  height: 400px;
 }
 .disable {
   margin-top: 10px;

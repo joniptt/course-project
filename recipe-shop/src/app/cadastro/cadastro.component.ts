@@ -35,6 +35,7 @@ export class CadastroComponent implements OnInit {
         (response) => {
           this.isLoading = false;
           this.signupForm.reset();
+          this.route.navigate['/login'];
           console.log(response);
         },
         (error) => {
