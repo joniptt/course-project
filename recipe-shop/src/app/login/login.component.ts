@@ -24,21 +24,25 @@ export class LoginComponent implements OnInit {
   submit() {
     let form = this.loginForm.value;
     this.isLoading = true;
-    if (!this.loginForm.invalid) {
-      this.getLogin.login(form).subscribe(
-        (response) => {
-          this.isLoading = false;
-          this.loginForm.reset();
-          alert('Login efetuado com sucesso!');
-          console.log(response);
-        },
-        (error) => {
-          this.isLoading = false;
-          this.loginForm.reset();
-          alert('Ocorreu um problema na hora de efetuar o login!');
-          console.log(error);
-        }
-      );
+    try {
+      if (!this.loginForm.invalid) {
+        this.getLogin.login(form).subscribe(
+          (response) => {
+            this.isLoading = false;
+            this.loginForm.reset();
+            alert('Login efetuado com sucesso!');
+            console.log(response);
+          },
+          (error) => {
+            this.isLoading = false;
+            this.loginForm.reset();
+            alert('Ocorreu um problema na hora de efetuar o login!');
+            console.log(error);
+          }
+        );
+      }
+    } catch (error) {
+      alert('Formulário inválido!');
     }
   }
   toSignUp() {
