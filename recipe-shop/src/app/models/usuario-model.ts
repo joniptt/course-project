@@ -3,4 +3,5 @@ export class Usuario {
   password?: string;
   email?: string;
   id?: string;
+  authToken: string;
 }

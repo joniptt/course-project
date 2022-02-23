@@ -11,40 +11,42 @@ import { UsuarioService } from '../services/usuario.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isLoading = false;
+  valueEmail: string = '';
+
   constructor(private route: Router, private getLogin: UsuarioService) {}
+
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
     });
   }
+
   submit() {
-    let form = {
-      email: this.loginForm.get('email').value,
-      password: this.loginForm.get('password').value,
-    };
+    let form = this.loginForm.value;
     this.isLoading = true;
-    try {
-      if (!this.loginForm.invalid) {
-        this.getLogin.login(form).subscribe(
-          (response) => {
-            this.isLoading = false;
-            this.loginForm.reset();
-            alert('Login efetuado com sucesso!');
-            console.log(response);
-          },
-          (error) => {
-            this.isLoading = false;
-            this.loginForm.reset();
-            alert('Ocorreu um problema na hora de efetuar o login!');
-            console.log(error);
-          }
-        );
-      }
-    } catch (error) {
+
+    if (!this.loginForm.invalid) {
+      this.getLogin.login(form).subscribe(
+        (response) => {
+          this.isLoading = false;
+          this.loginForm.reset();
+          alert('Login efetuado com sucesso!');
+          console.log(response);
+        },
+        (error) => {
+          this.isLoading = false;
+          this.loginForm.reset();
+          alert('Ocorreu um problema na hora de efetuar o login!');
+          console.log(error);
+        }
+      );
+    } else {
+      this.isLoading = false;
       alert('Formulário inválido!');
     }
   }
+
   toSignUp() {
     this.route.navigate(['/cadastro']);
   }

@@ -15,17 +15,17 @@ export class recipeService {
   reciDetail: Recipe;
 
   getRec(): Observable<any> {
-    return this.http.get<Recipe[]>('http://localhost:3000/recipes', {
+    return this.http.get<Recipe[]>('http://localhost:4000/recipes', {
       headers: new HttpHeaders('Custom-headers: hello'),
     });
   }
 
   delRec() {
-    return this.http.delete('http://localhost:3000/recipes');
+    return this.http.delete('http://localhost:4000/recipes');
   }
 
   postRec(recForm: Recipe): Observable<Recipe> {
-    return this.http.post<Recipe>('http://localhost:3000/recipes/add', recForm);
+    return this.http.post<Recipe>('http://localhost:4000/recipes/add', recForm);
   }
 
   addRecIgr(ingredient: Ingredients[]) {

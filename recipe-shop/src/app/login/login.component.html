@@ -1,5 +1,15 @@
+<!-- <div class="col my-4">
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div> -->
 <div class="container my-4">
-  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+  <div *ngIf="isLoading" class="d-flex justify-content-center my-4">
+    <div class="spinner-border" role="status"></div>
+  </div>
+  <form *ngIf="!isLoading" [formGroup]="loginForm" (ngSubmit)="submit()">
     <div class="col">
       <div class="my-4">
         <label for="name">E-mail</label>
@@ -21,20 +31,9 @@
         />
       </div>
     </div>
-    <div *ngIf="isLoading" class="d-flex justify-content-center my-4">
-      <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
     <div class="col d-flex my-3">
       <div class="mr-3">
-        <button
-          [disabled]="loginForm.invalid"
-          class="btn btn-primary"
-          type="submit"
-        >
-          Sign In
-        </button>
+        <button class="btn btn-primary" type="submit">Sign In</button>
       </div>
       <button class="btn btn-primary" type="button" (click)="toSignUp()">
         To Sign Up

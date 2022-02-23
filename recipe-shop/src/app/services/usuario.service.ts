@@ -3,25 +3,30 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from '../models/usuario-model';
 
+interface AuthTokenResponse {
+  sub: string;
+  iat: string;
+  exp: string;
+}
+
 @Injectable()
 export class UsuarioService {
   constructor(private http: HttpClient) {}
-  cad(form: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(
-      'http://localhost:3000/usuarios/cadastrar',
+
+  cad(form: Usuario): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(
+      'http://localhost:4000/usuarios/cadastrar',
       form
     );
   }
-  login(form: {
-    email: string;
-    password: string;
-  }): Observable<{ email: string; password: string }> {
-    return this.http.post<{ email: string; password: string }>(
-      'http://localhost:3000/auth/login',
+
+  login(form: Usuario): Observable<AuthTokenResponse> {
+    return this.http.post<AuthTokenResponse>(
+      'http://localhost:4000/auth/login',
       form
     );
   }
   getData(): Observable<any> {
-    return this.http.get<any>(' http://localhost:3000/usuarios');
+    return this.http.get<any>(' http://localhost:4000/usuarios');
   }
 }

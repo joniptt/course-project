@@ -12,8 +12,8 @@ import { UsuarioService } from '../services/usuario.service';
 export class CadastroComponent implements OnInit {
   signupForm: FormGroup;
   isLoading = false;
-  error = null;
   varError = '';
+
   constructor(private usuarioReq: UsuarioService, private route: Router) {}
   ngOnInit(): void {
     this.signupForm = new FormGroup({
@@ -36,20 +36,18 @@ export class CadastroComponent implements OnInit {
           this.isLoading = false;
           this.signupForm.reset();
           this.route.navigate['/login'];
-          console.log(response);
+          console.log(response.message);
+          alert(response.message);
         },
         (error) => {
-          error = console.log('Não foi possível realizar o cadastro');
           this.isLoading = false;
           this.signupForm.reset();
-          this.varError = error;
-          alert('Não foi possível realizar o cadastro no servidor!');
+          alert(error.message);
         }
       );
     } else {
       this.isLoading = false;
       alert('Formulário inválido');
-      console.log('Formulário inválido!');
     }
   }
 }
