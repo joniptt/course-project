@@ -19,14 +19,16 @@ export class UsuarioService {
       form
     );
   }
-
-  login(form: Usuario): Observable<AuthTokenResponse> {
-    return this.http.post<AuthTokenResponse>(
-      'http://localhost:4000/auth/login',
+  getData(): Observable<any> {
+    return this.http.get<any>(' http://localhost:3000/usuarios');
+  }
+  login(form: {
+    email: string;
+    password: string;
+  }): Observable<{ payload: string; exp: string }> {
+    return this.http.post<{ payload: string; exp: string }>(
+      'http://localhost:3000/auth/login',
       form
     );
-  }
-  getData(): Observable<any> {
-    return this.http.get<any>(' http://localhost:4000/usuarios');
   }
 }
