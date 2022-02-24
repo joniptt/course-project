@@ -1,6 +1,6 @@
-<div class="containner">
-  <form class="formEdit">
-    <div class="form-group">
+<div class="container">
+  <form class="d-flex justify-content-center">
+    <div class="pr-2">
       <label for="name">Name</label>
       <input
         type="text"
@@ -24,17 +24,18 @@
       />
     </div>
   </form>
-
-  <div id="btnEdit">
+  <div class="d-flex justify-content-center">
     <button
       (click)="addItemList()"
-      class="btn btn-success"
+      class="btn btn-success mr-2"
       type="submit"
       value="success"
     >
       Add
     </button>
-    <button class="btn btn-danger" type="reser " value="reset">Remove</button>
+    <button class="btn btn-danger mr-2" type="reser " value="reset">
+      Remove
+    </button>
     <button class="btn btn-primary" type="clear" value="clear">Clear</button>
   </div>
 </div>

@@ -11,6 +11,9 @@
 .drop-content {
   display: none;
 }
+a {
+  cursor: pointer;
+}
 button {
   cursor: pointer;
   text-decoration: none;

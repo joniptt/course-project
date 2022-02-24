@@ -1,22 +1,3 @@
-#btnEdit {
-  display: flex;
-  flex-direction: row;
-}
-button {
-  margin-right: 10px;
-}
-.formEdit {
-  display: flex;
-  flex-direction: row;
-}
-.form-group {
-  margin-right: 10px;
-}
-.containner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 label {
   color: #002940;
 }

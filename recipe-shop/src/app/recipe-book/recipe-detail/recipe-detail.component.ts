@@ -15,6 +15,10 @@ export class RecipeDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loadRec();
+  }
+
+  loadRec() {
     this.viewRecipe.recDet.subscribe((response) => {
       console.log(response);
       this.recipeDet = response;

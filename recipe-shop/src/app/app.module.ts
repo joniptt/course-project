@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { SlicePipe } from './pipes/slice.pipe';
@@ -50,6 +51,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
     BrowserAnimationsModule,
   ],
   providers: [
+    LoginService,
     recipeService,
     shoppingService,
     UsuarioService,

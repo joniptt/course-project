@@ -17,10 +17,6 @@ form input {
   border-radius: 5px;
 }
 .container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 50px;
-  align-items: center;
   background-color: #fe7b1e;
   padding: 50px;
   border-radius: 10px;
@@ -29,7 +25,6 @@ form input {
   max-height: 800px;
 }
 .addRecipe {
-  margin-top: 10px;
   text-decoration: none;
   border: #91ff21 solid 0.4px;
   background-color: #91ff21;

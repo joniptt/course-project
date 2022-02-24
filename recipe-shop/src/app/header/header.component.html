@@ -8,11 +8,6 @@
         <button routerLinkActive="active" routerLink="recipes">Recipes</button>
       </li>
       <li>
-        <button routerLinkActive="active" routerLink="cadastro">
-          Authentication
-        </button>
-      </li>
-      <li>
         <button routerLinkActive="active" routerLink="shoppinglist">
           Shopping List
         </button>
@@ -30,14 +25,25 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-          Dropdown link
+          <span *ngIf="!isLoggedIn">Cadastre-se</span>
+          <span *ngIf="isLoggedIn" class="material-icons">account_circle </span>
         </button>
         <div
+          *ngIf="!isLoggedIn"
           ngbDropdownMenu
           class="dropdown-menu"
           aria-labelledby="navbarDropdownMenuLink"
         >
-          <a class="dropdown-item" routerLink="cadastro">Cadastro </a>
+          <a class="dropdown-item" (click)="toCad()">Cadastro</a>
+          <a class="dropdown-item" (click)="toLogin()">Login</a>
+        </div>
+        <div
+          *ngIf="isLoggedIn"
+          ngbDropdownMenu
+          class="dropdown-menu"
+          aria-labelledby="navbarDropdownMenuLink"
+        >
+          <a class="dropdown-item" (click)="logoutUser()">Logout</a>
         </div>
       </li>
     </ul>

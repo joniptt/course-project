@@ -40,11 +40,7 @@ img {
 #cRec {
   margin-left: 10px;
 }
-.forms-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
+
 img {
   max-width: 70px;
   max-height: 70px;
@@ -83,4 +79,14 @@ img {
 .active {
   background-color: #e26913;
   border: #803013 solid 0.5px;
+}
+.nRecipe {
+  text-decoration: none;
+  border: #91ff21 solid 0.4px;
+  background-color: #91ff21;
+  padding: 5px 10px 5px 10px;
+  color: #002940;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: all ease 0.5s;
 }

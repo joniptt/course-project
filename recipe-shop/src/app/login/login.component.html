@@ -19,7 +19,14 @@
           id="name"
           placeholder="E-mail"
         />
-        <span *ngIf=""></span>
+        <span
+          *ngIf="
+            !loginForm.get('email').valid && loginForm.get('email').touched
+          "
+          class="validation"
+        >
+          Digite um E-mail válido!</span
+        >
       </div>
       <div>
         <label for="desc">Password</label>
@@ -29,6 +36,15 @@
           id="desc"
           placeholder="Password"
         />
+        <span
+          *ngIf="
+            !loginForm.get('password').valid &&
+            loginForm.get('password').touched
+          "
+          class="validation"
+        >
+          Digite um E-mail válido!</span
+        >
       </div>
     </div>
     <div class="col d-flex my-3">

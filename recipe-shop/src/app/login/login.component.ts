@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UsuarioService } from '../services/usuario.service';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   isLoading = false;
   valueEmail: string = '';
 
-  constructor(private route: Router, private getLogin: UsuarioService) {}
+  constructor(private route: Router, private authLogin: LoginService) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -27,11 +27,12 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
 
     if (!this.loginForm.invalid) {
-      this.getLogin.login(form).subscribe(
+      this.authLogin.login(form).subscribe(
         (response) => {
           this.isLoading = false;
           this.loginForm.reset();
           alert('Login efetuado com sucesso!');
+          this.route.navigate(['/recipes']);
           console.log(response);
         },
         (error) => {
