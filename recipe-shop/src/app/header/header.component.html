@@ -5,7 +5,13 @@
         <button>Recipe Book</button>
       </li>
       <li>
-        <button routerLinkActive="active" routerLink="recipes">Recipes</button>
+        <button
+          routerLinkActive="active"
+          routerLink="recipes"
+          *ngIf="isLoggedIn"
+        >
+          Recipes
+        </button>
       </li>
       <li>
         <button routerLinkActive="active" routerLink="shoppinglist">

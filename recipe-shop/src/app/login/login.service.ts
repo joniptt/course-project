@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { AuthUser } from './auth-user.model';
@@ -8,7 +9,7 @@ import { AuthUser } from './auth-user.model';
 export class LoginService {
   user = new Subject<AuthUser>();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route: Router) {}
 
   login(form: { email: string; password: string }): Observable<AuthUser> {
     return this.http
@@ -30,7 +31,12 @@ export class LoginService {
     this.user.next(user);
   }
 
+  autoLogin(){
+    
+  }
+
   logout() {
     this.user.next(null);
+    this.route.navigate(['/login']);
   }
 }
