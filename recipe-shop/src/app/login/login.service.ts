@@ -30,13 +30,14 @@ export class LoginService {
     localStorage.setItem('user', JSON.stringify(user));
     this.user.next(user);
   }
-
-  autoLogin(){
-    
+  autoLogout(time: number) {
+    setTimeout(() => {
+      this.user.next(null);
+      this.route.navigate(['/login']);
+    }, time);
   }
 
-  logout() {
-    this.user.next(null);
-    this.route.navigate(['/login']);
-  }
+  logout() {}
+
+  autoLogin() {}
 }
