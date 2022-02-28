@@ -8,8 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HeaderComponent } from './header/header.component';
+import { AuthGuard } from './login/auth.guard';
 import { LoginComponent } from './login/login.component';
-import { LoginService } from './login/login.service';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { SlicePipe } from './pipes/slice.pipe';
@@ -18,10 +18,6 @@ import { NewRecipeComponent } from './recipe-book/recipe-list/new-recipe/new-rec
 import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.component';
 import { RecipeRoutingModule } from './recipe-book/recipe.module';
 import { AuthInterpceptorService } from './services/auth-interceptor.service';
-import { LoggingInterceptorService } from './services/logging-interceptor.service';
-import { recipeService } from './services/recipe.service';
-import { shoppingService } from './services/shopping.service';
-import { UsuarioService } from './services/usuario.service';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
@@ -51,18 +47,10 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
     BrowserAnimationsModule,
   ],
   providers: [
-    LoginService,
-    recipeService,
-    shoppingService,
-    UsuarioService,
+    AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterpceptorService,
-      multi: true,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoggingInterceptorService,
       multi: true,
     },
   ],

@@ -1,6 +1,8 @@
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Ingredients } from '../shared/ingredients.module';
 
+@Injectable({ providedIn: 'root' })
 export class shoppingService {
   ingredients: Ingredients[] = [
     new Ingredients('Bananas', 2),
@@ -16,7 +18,7 @@ export class shoppingService {
     }
   }
   shoppingListObservable(): Observable<Ingredients[]> {
-    return new Observable<Ingredients[]>((observer) => {
+    return new Observable<Ingredients[]>((observer) => {  
       observer.next(this.ingredients);
     });
   }

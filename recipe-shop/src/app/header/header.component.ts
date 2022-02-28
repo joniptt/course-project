@@ -11,13 +11,11 @@ import { LoginService } from '../login/login.service';
 export class HeaderComponent implements OnInit, OnDestroy {
   constructor(private route: Router, private logged: LoginService) {}
   isLoggedIn = false;
-  isLoggedOut = true;
   private userSub: Subscription;
 
   ngOnInit(): void {
     this.userSub = this.logged.user.subscribe((res) => {
       this.isLoggedIn = !!res;
-      this.logged.autoLogout(+res.decoded.exp);
     });
   }
 

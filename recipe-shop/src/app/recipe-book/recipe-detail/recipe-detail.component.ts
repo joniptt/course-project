@@ -20,7 +20,6 @@ export class RecipeDetailComponent implements OnInit {
 
   loadRec() {
     this.viewRecipe.recDet.subscribe((response) => {
-      console.log(response);
       this.recipeDet = response;
     });
   }

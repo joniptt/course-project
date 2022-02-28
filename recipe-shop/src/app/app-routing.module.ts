@@ -1,18 +1,33 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroComponent } from './cadastro/cadastro.component';
-import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './login/auth.guard';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 const appRoutes: Routes = [
-  { path: 'shoppinglist', component: ShoppingListComponent },
   {
-    path: 'recipes',
+    path: 'login',
     loadChildren: () =>
-      import('./recipe-book/recipe.module').then((m) => m.RecipeRoutingModule),
+      import('./login/login-routing.module').then((m) => m.LoginRouting),
   },
   { path: 'cadastro', component: CadastroComponent },
-  { path: 'login', component: LoginComponent },
+  {
+    path: '',
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'recipes',
+        loadChildren: () =>
+          import('./recipe-book/recipe.module').then(
+            (m) => m.RecipeRoutingModule
+          ),
+      },
+      {
+        path: 'shoppinglist',
+        component: ShoppingListComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({

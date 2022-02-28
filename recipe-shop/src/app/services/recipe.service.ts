@@ -20,6 +20,10 @@ export class recipeService {
     });
   }
 
+  getOneRec(): Observable<any> {
+    return this.http.get('http://localhost:4000/recipes');
+  }
+
   delRec() {
     return this.http.delete('http://localhost:4000/recipes');
   }

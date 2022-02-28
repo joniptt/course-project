@@ -5,9 +5,11 @@ import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { AuthUser } from './auth-user.model';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class LoginService {
   user = new Subject<AuthUser>();
+  private tokenExpTime: any;
+  authenticated: boolean = false;
 
   constructor(private http: HttpClient, private route: Router) {}
 
@@ -22,22 +24,41 @@ export class LoginService {
   }
 
   loginSession(authRes: AuthUser) {
-    localStorage.setItem('id_token', authRes.token);
-    const expireDate = new Date(
-      new Date().getTime() + +authRes.decoded.exp * 1000
-    );
+    const expirationTime = +authRes.decoded.exp - +authRes.decoded.iat;
+    console.log(expirationTime);
+    const expireDate = new Date(new Date().getTime() + expirationTime * 1000);
+    console.log(expireDate);
     const user = new AuthUser(authRes.token, authRes.decoded, expireDate);
-    localStorage.setItem('user', JSON.stringify(user));
+    this.autoLogout(expirationTime * 1000);
     this.user.next(user);
+    this.authenticated = true;
+    localStorage.setItem('id_token', authRes.token);
+    localStorage.setItem('user', JSON.stringify(user));
   }
   autoLogout(time: number) {
-    setTimeout(() => {
-      this.user.next(null);
+    this.tokenExpTime = setTimeout(() => {
+      this.logout();
+      this.authenticated = false;
       this.route.navigate(['/login']);
     }, time);
   }
 
-  logout() {}
+  isAuth() {
+    return this.authenticated;
+  }
 
-  autoLogin() {}
+  logout() {
+    this.user.next(null);
+    this.authenticated = false;
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('user');
+    clearTimeout(this.tokenExpTime);
+    this.route.navigate(['/login']);
+  }
+
+  autoLogin() {
+    const userSaved = localStorage.getItem(JSON.parse('user'));
+    if (!userSaved) {
+    }
+  }
 }
