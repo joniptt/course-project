@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PersistenceModule } from 'angular-persistence';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
@@ -37,6 +38,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
     FilterPipe,
   ],
   imports: [
+    PersistenceModule,
     BrowserModule,
     NgbModule,
     FormsModule,

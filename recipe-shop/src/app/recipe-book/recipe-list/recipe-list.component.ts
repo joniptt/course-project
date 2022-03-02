@@ -10,7 +10,7 @@ import { recipeService } from 'src/app/services/recipe.service';
   styleUrls: ['./recipe-list.component.css'],
 })
 export class RecipeListComponent implements OnInit {
-  recipes: Recipe[] = [];
+  recipes: Recipe[] = JSON.parse(localStorage.getItem('recipes'));
   user: AuthUser = JSON.parse(localStorage.getItem('user'));
 
   constructor(
@@ -21,12 +21,12 @@ export class RecipeListComponent implements OnInit {
 
   ngOnInit(): void {}
   goTo(index: number) {
-    this.manRecipe.recDet.emit(this.recipes[index]);
+    this.manRecipe.recId = index;
     this.router.navigate(['detail', index], { relativeTo: this.thisRoute });
   }
   loadRecipes() {
     this.manRecipe.getRec().subscribe((recipes) => {
-      this.recipes = recipes;
+      this.recipes = JSON.parse(localStorage.getItem('recipes'));
     });
   }
   clear() {

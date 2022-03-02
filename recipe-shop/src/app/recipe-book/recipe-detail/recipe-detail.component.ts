@@ -15,12 +15,10 @@ export class RecipeDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadRec();
-  }
-
-  loadRec() {
-    this.viewRecipe.recDet.subscribe((response) => {
-      this.recipeDet = response;
+    this.viewRecipe.getOneRec().subscribe((res) => {
+      this.recipeDet = res;
     });
   }
+
+  loadRec() {}
 }

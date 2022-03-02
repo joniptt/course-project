@@ -6,7 +6,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 const appRoutes: Routes = [
   {
-    path: 'login',
+    path: '',
     loadChildren: () =>
       import('./login/login-routing.module').then((m) => m.LoginRouting),
   },

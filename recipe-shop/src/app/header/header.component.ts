@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LoginService } from '../login/login.service';
@@ -8,14 +8,15 @@ import { LoginService } from '../login/login.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit {
   constructor(private route: Router, private logged: LoginService) {}
-  isLoggedIn = false;
+  isLoggedIn = JSON.parse(localStorage.getItem('logged'));
   private userSub: Subscription;
 
   ngOnInit(): void {
     this.userSub = this.logged.user.subscribe((res) => {
-      this.isLoggedIn = !!res;
+      localStorage.setItem('logged', JSON.stringify(!!res));
+      this.isLoggedIn = JSON.parse(localStorage.getItem('logged'));
     });
   }
 

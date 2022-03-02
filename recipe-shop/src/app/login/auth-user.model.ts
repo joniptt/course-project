@@ -1,18 +1,13 @@
 export class AuthUser {
   public token: string;
-  public decoded: { id: number; sub: string; iat: string; exp: string };
+  public exp: number;
   public expirationDate: Date;
-  constructor(
-    token: string,
-    decoded: { id: number; sub: string; iat: string; exp: string },
-    expDate: Date
-  ) {
+  constructor(token: string, exp: number, expDate: Date) {
     this.token = token;
-    this.decoded = decoded;
-
+    this.exp = exp;
     this.expirationDate = expDate;
   }
-  get exp() {
+  get expiration() {
     if (!this.expirationDate || new Date() > this.expirationDate) {
       return null;
     } else {

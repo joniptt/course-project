@@ -1,6 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { EventEmitter, Injectable, Input, Output } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, Input } from '@angular/core';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { Recipe } from '../models/recipe-model';
 import { Ingredients } from '../shared/ingredients.module';
 import { shoppingService } from './shopping.service';
@@ -10,18 +11,21 @@ export class recipeService {
   constructor(private addIngr: shoppingService, private http: HttpClient) {}
   @Input() recId: number;
 
-  @Output() recDet = new EventEmitter<Recipe>();
-
   reciDetail: Recipe;
 
   getRec(): Observable<any> {
-    return this.http.get<Recipe[]>('http://localhost:4000/recipes', {
-      headers: new HttpHeaders('Custom-headers: hello'),
-    });
+    return this.http.get<Recipe[]>('http://localhost:4000/recipes').pipe(
+      tap((res) => {
+        console.log(res);
+        localStorage.setItem('recipes', JSON.stringify(res));
+      })
+    );
   }
 
-  getOneRec(): Observable<any> {
-    return this.http.get('http://localhost:4000/recipes');
+  getOneRec(): Observable<Recipe> {
+    return this.http.get<Recipe>(
+      'http://localhost:4000/recipes' + JSON.stringify(this.recId)
+    );
   }
 
   delRec() {
