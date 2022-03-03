@@ -32,6 +32,7 @@ export class LoginService {
     this.user.next(null);
     localStorage.removeItem('id_token');
     localStorage.removeItem('user');
+    localStorage.removeItem('recipes');
     localStorage.setItem('logged', 'false');
     this.route.navigate(['/login']);
   }
