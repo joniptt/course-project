@@ -21,12 +21,14 @@ export class RecipeListComponent implements OnInit {
 
   ngOnInit(): void {}
   goTo(index: number) {
-    this.manRecipe.recId = index;
-    this.router.navigate(['detail', index], { relativeTo: this.thisRoute });
+    this.manRecipe.getOneRec(index).subscribe((res) => {
+      console.log(res);
+    });
+    this.router.navigate(['detail']);
   }
   loadRecipes() {
     this.manRecipe.getRec().subscribe((recipes) => {
-      this.recipes = JSON.parse(localStorage.getItem('recipes'));
+      this.recipes = recipes;
     });
   }
   clear() {

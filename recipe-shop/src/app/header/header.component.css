@@ -1,7 +1,7 @@
 .header {
   display: flex;
   padding-top: 10px;
-  background-color: #e26913;
+  background-color: black;
   align-items: center;
   border-bottom: black solid 0.5px;
 }
@@ -32,5 +32,5 @@ ul {
   font-size: large;
 }
 .active {
-  color: #002940;
+  color: red;
 }

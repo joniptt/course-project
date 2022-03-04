@@ -22,18 +22,12 @@ export class LoginService {
 
   loginSession(authRes: AuthUser) {
     const expireDate = new Date(new Date().getTime() + authRes.exp * 1000);
-    this.autoLogout(authRes.exp * 1000);
     const user = new AuthUser(authRes.token, authRes.exp, expireDate);
     this.user.next(user);
     localStorage.setItem('id_token', authRes.token);
     localStorage.setItem('user', JSON.stringify(user));
   }
 
-  autoLogout(timer: number) {
-    setTimeout(() => {
-      this.logout();
-    }, timer);
-  }
   logout() {
     this.user.next(null);
     localStorage.removeItem('id_token');

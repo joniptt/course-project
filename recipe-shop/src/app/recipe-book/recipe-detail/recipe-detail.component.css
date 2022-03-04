@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #e26913;
+  background-color: rgb(158, 4, 4);
   padding: 50px;
   border-radius: 10px;
   border: white double 1px;

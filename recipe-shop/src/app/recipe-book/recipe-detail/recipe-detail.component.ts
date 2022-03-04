@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Recipe } from 'src/app/models/recipe-model';
 import { recipeService } from 'src/app/services/recipe.service';
 @Component({
@@ -7,15 +8,23 @@ import { recipeService } from 'src/app/services/recipe.service';
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css'],
 })
-export class RecipeDetailComponent implements OnInit {
-  recipeDet: Recipe = {};
+export class RecipeDetailComponent implements OnInit, OnDestroy {
+  recipeDet: Recipe = {
+    name: '',
+    description: '',
+    imagePath: '',
+    ingredients: [],
+  };
+  unsubs: Subscription;
+
   constructor(
     private viewRecipe: recipeService,
     private route: ActivatedRoute
   ) {}
+  ngOnDestroy(): void {}
 
-  ngOnInit(): void {
-    this.viewRecipe.getOneRec().subscribe((res) => {
+  ngOnInit() {
+    this.viewRecipe.recDet.subscribe((res) => {
       this.recipeDet = res;
     });
   }

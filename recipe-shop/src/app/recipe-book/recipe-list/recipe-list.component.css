@@ -55,8 +55,8 @@ img {
   align-items: center;
   border-radius: 7px;
   cursor: pointer;
-  border: #fe7b1e solid 0.5px;
-  background-color: #fe7b1e;
+  border: rgb(158, 4, 4) solid 0.5px;
+  background-color: rgb(158, 4, 4);
   padding-left: 10px;
   margin-top: 3px;
   transition: all ease 0.5s;
@@ -73,7 +73,7 @@ img {
   color: #002940;
 }
 .book:hover {
-  background-color: #e26913;
+  background-color: #c55a0d;
   border: #803013 solid 0.5px;
 }
 .active {

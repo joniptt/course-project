@@ -10,12 +10,14 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  cpf: FormControl;
   isLoading = false;
   valueEmail: string = '';
 
   constructor(private route: Router, private authLogin: LoginService) {}
 
   ngOnInit(): void {
+    this.cpf = new FormControl({});
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
