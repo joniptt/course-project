@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="card" *ngFor="let compo of computadores">
+      <div class="card-body">
+        <img class="card-img-top" [src]="compo.img" alt="" />
+        <h3 class="card-tittle" style="color: white">{{ compo.nome }}</h3>
+        <h2 class="price" style="color: rgb(9, 175, 9)">
+          {{ compo.preco }}
+        </h2>
+        <h4 style="color: red">{{ compo.preco / 12 }}</h4>
+      </div>
+    </div>
+  </div>
+</div>

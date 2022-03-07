@@ -4,6 +4,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { AuthGuard } from './login/auth.guard';
 import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { ComputadoresComponent } from './_components/computadores/computadores.component';
 
 const appRoutes: Routes = [
   {
@@ -13,7 +14,10 @@ const appRoutes: Routes = [
   },
   { path: 'cadastro', component: CadastroComponent },
   { path: 'detail', component: RecipeDetailComponent },
-
+  {
+    path: 'shoppinglist',
+    component: ShoppingListComponent,
+  },
   {
     path: '',
     canActivate: [AuthGuard],
@@ -25,10 +29,7 @@ const appRoutes: Routes = [
             (m) => m.RecipeRoutingModule
           ),
       },
-      {
-        path: 'shoppinglist',
-        component: ShoppingListComponent,
-      },
+      { path: 'computadores', component: ComputadoresComponent },
     ],
   },
 ];

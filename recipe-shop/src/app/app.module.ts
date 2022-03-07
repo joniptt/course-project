@@ -21,6 +21,7 @@ import { RecipeRoutingModule } from './recipe-book/recipe.module';
 import { AuthInterpceptorService } from './services/auth-interceptor.service';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { ComputadoresComponent } from './_components/computadores/computadores.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
     ShortenPipe,
     SlicePipe,
     FilterPipe,
+    ComputadoresComponent,
   ],
   imports: [
     PersistenceModule,

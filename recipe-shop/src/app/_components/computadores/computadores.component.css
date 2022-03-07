@@ -1,0 +1,13 @@
+img {
+  width: 150px;
+}
+
+.container {
+  margin-top: 100px;
+}
+.card {
+  border: transparent;
+  background: none;
+}
+.card:hover {
+}
