@@ -11,11 +11,11 @@ export class ComputadoresComponent implements OnInit {
     {
       nome: 'Placa-mãe',
       preco: 399.99,
-      img: './assets/img/placa-mae.png',
+      img: './assets/img/PlacaB450.png',
     },
     {
       nome: 'Placa-mãe',
-      preco: 399.99,
+      preco: 850,
       img: './assets/img/placa-mae.png',
     },
   ];

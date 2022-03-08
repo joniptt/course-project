@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
           this.isLoading = false;
           this.loginForm.reset();
           alert('Login efetuado com sucesso!');
-          this.route.navigate(['/recipes']);
+          this.route.navigate(['/computadores']);
           console.log(response);
         },
         (error) => {

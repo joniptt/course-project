@@ -1,0 +1,74 @@
+<div id="main">
+  <nav class="header">
+    <div class="navigation d-flex align-items-center">
+      <button
+        id="menu"
+        class="mb-2 ml-4 p-3 d-flex align-items-center"
+        (click)="openMenu()"
+      >
+        <span class="material-icons"> menu </span>
+      </button>
+      <ul class="d-flex">
+        <li class="activeRoute">
+          <button>Computadores</button>
+        </li>
+        <li>
+          <button
+            routerLinkActive="active"
+            routerLink="computadores"
+            *ngIf="isLoggedIn"
+          >
+            Monte já o seu
+          </button>
+        </li>
+        <li>
+          <button routerLinkActive="active" routerLink="shoppinglist">
+            Carrinho
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="dropBtn">
+      <ul>
+        <li ngbDropdown class="nav-item dropdown">
+          <button
+            class="nav-link dropdown-toggle"
+            ngbDropdownToggle
+            id="navbarDropdownMenuLink"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span *ngIf="!isLoggedIn">Cadastre-se</span>
+            <span *ngIf="isLoggedIn" class="material-icons"
+              >account_circle</span
+            >
+          </button>
+          <div
+            *ngIf="!isLoggedIn"
+            ngbDropdownMenu
+            class="dropdown-menu"
+            aria-labelledby="navbarDropdownMenuLink"
+          >
+            <a class="dropdown-item" (click)="toCad()">Cadastro</a>
+            <a class="dropdown-item" (click)="toLogin()">Login</a>
+          </div>
+          <div
+            *ngIf="isLoggedIn"
+            ngbDropdownMenu
+            class="dropdown-menu"
+            aria-labelledby="navbarDropdownMenuLink"
+          >
+            <a class="dropdown-item" (click)="logoutUser()">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<div [ngClass]="{ closeSideBar: closed }" id="mySidebar" class="sidebar">
+  <a class="closebtn d-flex" (click)="closeNav()"
+    ><span class="material-icons">&times;</span></a
+  >
+  <a class="menuOp d-flex">Placa Mãe</a>
+</div>

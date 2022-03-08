@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="card col-3" *ngFor="let compo of computadores">
+      <div class="card-body">
+        <img
+          class="card-img-top"
+          style="width: 100%"
+          [src]="compo.img"
+          alt=""
+        />
+        <h1 class="my-3" style="color: white">{{ compo.nome }}</h1>
+        <h2 class="price" style="color: rgb(9, 175, 9)">
+          R${{ compo.preco | preco }}
+        </h2>
+        <h4 style="color: red">12x de {{ compo.preco | parcela }}</h4>
+      </div>
+    </div>
+  </div>
+</div>

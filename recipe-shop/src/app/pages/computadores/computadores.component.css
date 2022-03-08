@@ -1,5 +1,6 @@
 img {
   width: 150px;
+  height: 200px;
 }
 
 .container {
@@ -9,5 +10,7 @@ img {
   border: transparent;
   background: none;
 }
-.card:hover {
+.card-body:hover {
+  opacity: 80%;
+  cursor: pointer;
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { LoginService } from '../login/login.service';
+import { LoginService } from '../../pages/login/login.service';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   constructor(private route: Router, private logged: LoginService) {}
   isLoggedIn = JSON.parse(localStorage.getItem('logged'));
   private userSub: Subscription;
+  closed = true;
 
   ngOnInit(): void {
     this.userSub = this.logged.user.subscribe((res) => {
@@ -19,7 +20,13 @@ export class HeaderComponent implements OnInit {
       this.isLoggedIn = JSON.parse(localStorage.getItem('logged'));
     });
   }
-
+  closeNav() {
+    this.closed = !this.closed;
+  }
+  openMenu() {
+    this.closed = !this.closed;
+  }
+  toComputadores() {}
   logoutUser() {
     this.logged.logout();
   }

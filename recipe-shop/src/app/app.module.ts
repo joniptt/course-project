@@ -7,11 +7,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PersistenceModule } from 'angular-persistence';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CadastroComponent } from './cadastro/cadastro.component';
-import { HeaderComponent } from './header/header.component';
-import { AuthGuard } from './login/auth.guard';
-import { LoginComponent } from './login/login.component';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { ComputadoresComponent } from './pages/computadores/computadores.component';
+import { AuthGuard } from './pages/login/auth.guard';
+import { LoginComponent } from './pages/login/login.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { PrecoPipe } from './pipes/preco.pipe';
+import { PrestaçãoPipe } from './pipes/prestação.pipe';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { SlicePipe } from './pipes/slice.pipe';
 import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
@@ -19,16 +22,11 @@ import { NewRecipeComponent } from './recipe-book/recipe-list/new-recipe/new-rec
 import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.component';
 import { RecipeRoutingModule } from './recipe-book/recipe.module';
 import { AuthInterpceptorService } from './services/auth-interceptor.service';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ComputadoresComponent } from './_components/computadores/computadores.component';
+import { HeaderComponent } from './_components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
     RecipeListComponent,
     RecipeDetailComponent,
     NewRecipeComponent,
@@ -37,7 +35,11 @@ import { ComputadoresComponent } from './_components/computadores/computadores.c
     ShortenPipe,
     SlicePipe,
     FilterPipe,
+    HeaderComponent,
+    PrestaçãoPipe,
     ComputadoresComponent,
+    PrecoPipe,
+    ProductDetailComponent,
   ],
   imports: [
     PersistenceModule,
