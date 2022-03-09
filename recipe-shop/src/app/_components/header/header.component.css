@@ -24,96 +24,11 @@ button {
   background: none;
   border: none;
 }
-#sideDrop {
-  background-color: black;
-  width: 150px;
-  height: 500px;
-}
-.dropdown-menu {
-  width: 150px;
-}
+
 .activeRoute {
   margin-right: 10px;
   font-size: large;
 }
 .active {
   color: red;
-}
-.sidebar {
-  height: 100%;
-  width: 300px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 60px;
-  transition: 0.5s;
-}
-.closeSideBar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 60px;
-  transition: 0.5s;
-}
-
-.sidebar .menuOp {
-  width: 100%;
-  padding: 10px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  transition: 0.3s;
-}
-
-.sidebar .menuOp:hover {
-  background-color: rgb(34, 34, 34);
-}
-
-.closebtn {
-  
-  position: absolute;
-  top: 0;
-  padding: 10px;
-  font-size: 36px;
-}
-
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-}
-
-.openbtn:hover {
-  background-color: #444;
-}
-
-#main {
-  transition: margin-left 0.5s;
-}
-.dropdown-menu {
-  width: 150px;
-}
-.activeRoute {
-  margin-right: 10px;
-  font-size: large;
-}
-.active {
-  color: red;
-}
-#menu {
-  border-radius: 50%;
-}
-#menu:hover {
-  background-color: rgb(48, 47, 47);
 }

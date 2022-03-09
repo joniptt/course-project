@@ -8,13 +8,12 @@ import { PersistenceModule } from 'angular-persistence';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { CarrinhoComponent } from './pages/carrinho/carrinho.component';
 import { ComputadoresComponent } from './pages/computadores/computadores.component';
 import { AuthGuard } from './pages/login/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { FilterPipe } from './pipes/filter.pipe';
-import { PrecoPipe } from './pipes/preco.pipe';
-import { PrestaçãoPipe } from './pipes/prestação.pipe';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { SlicePipe } from './pipes/slice.pipe';
 import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
@@ -22,6 +21,7 @@ import { NewRecipeComponent } from './recipe-book/recipe-list/new-recipe/new-rec
 import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.component';
 import { RecipeRoutingModule } from './recipe-book/recipe.module';
 import { AuthInterpceptorService } from './services/auth-interceptor.service';
+import { ComponentModule } from './_components/component.module';
 import { HeaderComponent } from './_components/header/header.component';
 
 @NgModule({
@@ -36,9 +36,9 @@ import { HeaderComponent } from './_components/header/header.component';
     SlicePipe,
     FilterPipe,
     HeaderComponent,
-    PrestaçãoPipe,
     ComputadoresComponent,
-    PrecoPipe,
+
+    CarrinhoComponent,
     ProductDetailComponent,
   ],
   imports: [
@@ -51,6 +51,7 @@ import { HeaderComponent } from './_components/header/header.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    ComponentModule,
   ],
   providers: [
     AuthGuard,

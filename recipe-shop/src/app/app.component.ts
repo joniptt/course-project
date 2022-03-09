@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,16 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
-  closeNav() {}
+  closed = true;
+  constructor(private route: Router) {}
+
+  toPM() {
+    this.route.navigate['/computadores'];
+  }
+  closeNav() {
+    this.closed = this.closed = true;
+  }
+  openMenu() {
+    this.closed = this.closed = false;
+  }
 }

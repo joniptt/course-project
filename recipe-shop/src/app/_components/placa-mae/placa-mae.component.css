@@ -1,0 +1,16 @@
+img {
+  width: 150px;
+  height: 200px;
+}
+
+.container {
+  margin-top: 100px;
+}
+.card {
+  border: transparent;
+  background: none;
+}
+.card-body:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
