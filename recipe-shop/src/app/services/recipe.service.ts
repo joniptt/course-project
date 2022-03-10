@@ -2,13 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { Recipe } from '../models/recipe-model';
-import { Ingredients } from '../shared/ingredients.module';
-import { shoppingService } from './shopping.service';
-
+import { Recipe } from '../models/recipe.model';
 @Injectable({ providedIn: 'root' })
 export class recipeService {
-  constructor(private addIngr: shoppingService, private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
   recDet = new Subject<Recipe>();
   reciDetail: Recipe;
 
@@ -37,9 +34,6 @@ export class recipeService {
     return this.http.post<Recipe>('http://localhost:4000/recipes/add', recForm);
   }
 
-  addRecIgr(ingredient: Ingredients[]) {
-    this.addIngr.addRecipeIngrList(ingredient);
-  }
   // newRecipe(name: string, desc: string, img: string) {
   //   this.recipes.push(new Recipe(name, desc, img, ingre));
   // }

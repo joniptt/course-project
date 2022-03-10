@@ -77,3 +77,7 @@ body {
   margin-left: 300px;
   transition: 0.5px;
 }
+.menuClosed {
+  height: 0px;
+  overflow-y: hidden;
+}

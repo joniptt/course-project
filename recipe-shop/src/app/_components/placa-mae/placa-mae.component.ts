@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PlacaMae } from 'src/app/models/placa-mae.model';
+import { PecasService } from 'src/app/services/produtos.service';
 
 @Component({
   selector: 'app-placa-mae',
@@ -6,19 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./placa-mae.component.css'],
 })
 export class PlacaMaeComponent implements OnInit {
-  computadores: {}[] = [
-    {
-      nome: 'Placa-mãe',
-      preco: 399.99,
-      img: './assets/img/PlacaB450.png',
-    },
-    {
-      nome: 'Placa-mãe',
-      preco: 850,
-      img: './assets/img/placa-mae.png',
-    },
-  ];
-  constructor() {}
+  placaMae: PlacaMae[] = [];
+  constructor(private pecas: PecasService) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.pecas.getPlacaMae().subscribe((res) => {
+      this.placaMae = res;
+    });
+  }
 }

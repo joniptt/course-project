@@ -27,7 +27,11 @@ export class LoginService {
     localStorage.setItem('id_token', authRes.token);
     localStorage.setItem('user', JSON.stringify(user));
   }
-
+  expiredSession(timer: number) {
+    setTimeout(() => {
+      localStorage.removeItem('user');
+    }, timer);
+  }
   logout() {
     this.user.next(null);
     localStorage.removeItem('id_token');

@@ -1,10 +1,16 @@
 <app-side-bar>
   <div [ngClass]="{ closeSideBar: closed }" id="mySidebar" class="sidebar">
     <button class="closeBtn pt-3" (click)="closeNav()">&times;</button>
-    <a id="menuOp" class="d-flex p-3">Placa Mãe</a>
-    <a id="menuOp" class="d-flex p-3">Periféricos</a>
-
-    <a id="menuOp" class="d-flex p-3">Monitores</a>
+    <a id="menuOp" (click)="toPM()" class="d-flex p-3">Placa Mãe</a>
+    <a id="menuOp" (click)="toMouses()" class="d-flex p-3">Mouses</a>
+    <a id="menuOp" (click)="toTeclados()" class="d-flex p-3">Teclados</a>
+    <a
+      id="menuOp"
+      (click)="toProcess()"
+      routerLink="produtos/processador"
+      class="d-flex p-3"
+      >Processadores</a
+    >
   </div>
 </app-side-bar>
 

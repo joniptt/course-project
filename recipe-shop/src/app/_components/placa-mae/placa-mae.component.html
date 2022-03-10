@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="card col-3" *ngFor="let compo of placaMae; let i = index">
+      <div class="card-body" (click)="toDetail()">
+        <img
+          class="card-img-top"
+          style="width: 100%"
+          [src]="compo.img"
+          alt=""
+        />
+        <h3 class="card-title my-3" style="color: white">{{ compo.name }}</h3>
+        <h2 class="price" style="color: rgb(9, 175, 9)">
+          R${{ compo.preco | preco }}
+        </h2>
+        <div class="d-flex">
+          <h4 class="pr-2" style="color: white">Pague em até</h4>
+          <h4 style="color: red">12x de {{ compo.preco | parcela }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

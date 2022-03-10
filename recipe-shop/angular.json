@@ -7,7 +7,9 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "inlineTemplate": true
+          "inlineStyle": false,
+          "inlineTemplate": false,
+          "prefix": "app"
         },
         "@schematics/angular:application": {
           "strict": false
