@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Mouse } from '../models/mouse.model';
 import { PlacaMae } from '../models/placa-mae.model';
 import { Processador } from '../models/processador.model';
@@ -14,13 +15,11 @@ export class PecasService {
   constructor(private http: HttpClient) {}
 
   getPecas(): Observable<Produtos[]> {
-    return this.http.get<Produtos[]>('http://localhost:4000/produtos');
+    return this.http.get<Produtos[]>(environment.apiKey + 'produtos');
   }
 
   getPlacaMae(): Observable<PlacaMae[]> {
-    return this.http.get<PlacaMae[]>(
-      'http://localhost:4000/produtos/placa-mae'
-    );
+    return this.http.get<PlacaMae[]>(environment.apiKey + '/placa-mae');
   }
 
   getMouse(): Observable<Mouse[]> {
